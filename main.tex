@@ -317,11 +317,27 @@ SQL-Keywords:
     \hline
     \texttt{unique} & Attributwerte müssen eindeutig sein. \\
     \hline
+    \texttt{check} & Ermöglicht komplexere Einschränkungen \\
+    \hline
+    \texttt{cascade} & ? \\
+    \hline
+    \texttt{set null} & Setzt die Referenz auf null \\
+    \hline
+    \texttt{set default} & Setzt die Referenz auf den Default-Wert \\
+    \hline
+    \texttt{No Action/Restrict} & ? \\
+    \hline
+    Beispiel & Constraints beispiel? \\
+    \hline
     \texttt{foreign key} & Attribut verweist auf Primärschlüssel einer anderen Tabelle. \\
     \hline
     \texttt{references} & Definiert die referenzierte Tabelle und Spalte für den Fremdschlüssel. \\
     \hline
     Beispiel: & \texttt{foreign key (PID) references Projekt(PID)} \\
+    \hline
+    \texttt{to\_number} oder \texttt{to\_char} & Konvertiert Datentypen, z.B. von String zu Zahl oder umgekehrt. \\
+    \hline
+    Date, Time, Datetimeoffset, interval, year, day, second? & \\
     \hline
   \end{tabular}
 \end{center}
@@ -391,12 +407,26 @@ CREATE TABLE Belegung (
 \end{lstlisting}
 
 \begin{block}{Datentypen in SQL}
-  \begin{tabular}{|p{4cm}|p{7cm}|}
-    \hline
-    \textbf{Datentyp} & \textbf{Beschreibung} \\
-    \hline
-    
-  \end{tabular}
+  \begin{center}
+    \begin{tabular}{|p{4cm}|p{7cm}|}
+      \hline
+      \textbf{Datentyp} & \textbf{Beschreibung} \\
+      \hline
+      \texttt{Integer/int, smallint} & Ganze Zahlen, smallint kleinere Zahlen ($\Rightarrow$ kleinerer Speicherbedarf) \\
+      \hline
+      \texttt{Float, Real, Double precision} & Gleitkommazahlen, Approximativ. Double precision für mehr Genauigkeit \\
+      \hline
+      \texttt{Decimal(i, j), Numeric(i, j)} & Feste Dezimalzahlen, i: Stellen insgesamt, j: Stellen nach dem Komma \\
+      \hline
+      \texttt{Serial} & Automatisch inkrementierende Ganzzahl, oft für Primärschlüssel \\
+      \hline
+      \texttt{Char(n), Varchar(n)} & Text, bei Char wird bei kürzerer Eingabe mit ' ' aufgefüllt, bei Varchar nicht \\
+      \hline
+      \texttt{create domain} & Definiert einen benutzerdefinierten Datentyp \\
+      \hline
+      Beispiel & texttt{Gibs nicht, ist mir zu blöd gerade?}
+    \end{tabular}
+  \end{center}
 \end{block}
 
 \end{document}

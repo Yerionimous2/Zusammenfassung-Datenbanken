@@ -281,11 +281,25 @@ SQL-Befehle:
     \hline    
     Beispiel & \texttt{create schema Unternehmen authorization JSmith create table Projekt;} \\
     \hline
-    Einfacher: & \texttt{PID int not null primary key,} \\}
+    Einfacher: & \texttt{PID int not null primary key,} \\
+    & geht aber leider nicht mit zusammengesetzten Schlüsseln. \\
     \hline
     \texttt{CREATE Table} & Erstellt eine neue Tabelle im Schema. \\
     \hline
     Beispiel & \texttt{create table Projekt (} \\ & \texttt{PID int not null,} \\ & \texttt{Name varchar(50) not null, } \\ & \texttt{primary key(PID));} \\
+    \hline
+    \texttt{ALTER Table} & ändert die angegebene Tabelle. \\
+    \hline
+    \multicolumn{2}{|p{11cm}|}{Es gibt noch andere Verwendungen für \texttt{alter:}} \\
+    \texttt{alter database} & ändert Eigenschaften der Datenbank. \\
+    \texttt{alter view} & ändert die Definition einer Sicht \\
+    \texttt{alter index} & modifiziert einen Index \\
+    \texttt{alter user/role} & ändert die Rollen eines Benutzers \\
+    \hline
+    \texttt{ADD} & Fügt eine Spalte zu einer Tabelle hinzu \\
+    \hline
+    Beispiel & \texttt{alter table Angestellte} \\
+    & \texttt{ add foreign key (Abt) references Abteilung(Nummer);} \\
     \hline
   \end{tabular}
 \end{center}
@@ -311,6 +325,7 @@ SQL-Keywords:
     \hline
   \end{tabular}
 \end{center}
+
 \begin{block}{SQL als DDL}
   \begin{itemize}
     \item Schema, Tabellen, Datentypen, Constraints definieren
@@ -331,4 +346,57 @@ SQL-Keywords:
     \end{itemize}
   \end{itemize}
 \end{block}
+
+\begin{block}{Übergang von relationelem Schema zu SQL Schema}
+  \begin{itemize}
+    \item Name der Relation wird zum Tabellennamen
+    \item Attribute werten untereinander geschrieben(Datentypen angeben)
+    \item Bei einem Schlüssel \texttt{primary key} hinterschreiben
+    \item Bei zusammengesetzten Schlüsseln \texttt{primary key (A, B)} angeben
+    \item Für IDs ist \texttt{serial} als Datentyp sinnvoll
+    \item Fremdschlüssel werden mit \texttt{foreign key} gekennzeichnet
+  \end{itemize}
+\end{block}
+Beispiel:
+\begin{itemize}
+  \item \textbf{Student}(\underline{Matrikelnummer}, Name, Studiengang)
+  \item \textbf{Kurs}(\underline{KursID}, Titel, Dozent)
+  \item \textbf{Belegung}(\underline{Matrikelnummer}, \underline{KursID}, Note)
+\end{itemize}
+Wird folgendes SQL-Schema:
+\begin{lstlisting}
+-- Tabelle: Student
+CREATE TABLE Student (
+    Matrikelnummer INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Studiengang VARCHAR(100)
+);
+
+-- Tabelle: Kurs
+CREATE TABLE Kurs (
+    KursID SERIAL PRIMARY KEY,
+    Titel VARCHAR(100),
+    Dozent VARCHAR(100)
+);
+
+-- Tabelle: Belegung
+CREATE TABLE Belegung (
+    Matrikelnummer INT,
+    KursID INT,
+    Note DECIMAL(3,1),
+    PRIMARY KEY (Matrikelnummer, KursID),
+    FOREIGN KEY (Matrikelnummer) REFERENCES Student(Matrikelnummer),
+    FOREIGN KEY (KursID) REFERENCES Kurs(KursID)
+);
+\end{lstlisting}
+
+\begin{block}{Datentypen in SQL}
+  \begin{tabular}{|p{4cm}|p{7cm}|}
+    \hline
+    \textbf{Datentyp} & \textbf{Beschreibung} \\
+    \hline
+    
+  \end{tabular}
+\end{block}
+
 \end{document}

@@ -271,7 +271,7 @@ SQL dient als verschiedene Sprachen:
 \end{itemize}
 SQL-Befehle:
 \begin{center}
-  \begin{tabular}{|p{4cm}|p{7cm}|}
+  \begin{longtable}{|p{4cm}|p{7cm}|}
     \hline
     \textbf{Befehl} & \textbf{Beschreibung} \\
     \hline
@@ -310,7 +310,12 @@ SQL-Befehle:
     \multicolumn{2}{|p{11cm}|}{SQL als DML(Datenmanipulation und -abfrage)} \\
     \hline
     \texttt{select [..] from} & Wählt die gegebenen Spalten aus der Tabelle aus und gibt sie zurück \\
-  \end{tabular}
+    \hline
+    \multicolumn{2}{|p{11cm}|}{Durch z.B. \texttt{select 1.1*Gehalt} kann man Spaltenwerte in der Ausgabe anpassen.} \\
+    \multicolumn{2}{|p{11cm}|}{Gleiches funktioniert mit +,- und / auf Zahlen.} \\
+    \multicolumn{2}{|p{11cm}|}{Für Konkatinieren von Zeichenketten verwendet man \texttt{||}.} \\
+    \hline
+  \end{longtable}
 \end{center}
 SQL-Keywords:
 \begin{center}
@@ -391,6 +396,15 @@ SQL-Keywords:
     Beispiel & \texttt{select max(Gehalt) from Angestellte;} \\
     \hline
     \multicolumn{2}{|p{11cm}|}{In Kombination mit \texttt{group by} werden die Operationen \texttt{count, sum, min, max} und \texttt{avg} jeweils auf die einzelnen Gruppen angewendet.} \\
+    \hline
+    \texttt{like} & Vergleicht Zeichenketten \\
+    \hline
+    Beispiel & \texttt{select * from Student where Name like 'T \_ \_';} \\
+    & sucht alle Studierenden raus, die einen Namen mit drei Buchstaben haben, der mit T anfängt\\
+    & \texttt{select * from Student where Name like 'T\%';} \\
+    & sucht alle Studierenden raus, die einen Namen haben, der mit T anfängt \\
+    \hline
+    \texttt{between} & Überprüft, ob ein Wert in einem Intervall liegt \\
     \hline
   \end{longtable}
 \end{center}

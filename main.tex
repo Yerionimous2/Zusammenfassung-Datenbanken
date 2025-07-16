@@ -23,6 +23,8 @@
 \tableofcontents
 
 \newpage
+\section{Kapitel 1: Einführung}
+Sehr viel Geyappe über Datenbanken und Entwurfsmodelle, später.
 
 \section{Kapitel 2: Datenbank-Modellierung}
 
@@ -248,5 +250,85 @@ Anomalien treten auf, wenn Relationen schlecht strukturiert sind – meist durch
 \end{itemize}
 \end{block}
 
+\section{Kapitel 5: SQL - Structured Query Language}
 
+Wir befinden uns in der Datenbank-Installation, also im Physischen Schemaentwurf.
+
+\begin{block}{Historie}
+  \begin{itemize}
+    \item 1974: SEQUEL von IBM, Implementierung für System R
+    \item 1983: SQL ist der Standard geworden
+    \item 1986: SQL-86, bzw. SQL 1 $\Rightarrow$ erster ANSI und ISO-Standard
+    \item 1992: SQL 2, deutliche Erweiterungen im Standard
+    \item Weitere Revisionen:2000(SQL 3), 2003, 2006, 2008, 2011, 2016, 2023
+  \end{itemize}
+\end{block}
+
+SQL dient als verschiedene Sprachen:
+\begin{itemize}
+  \item VDL, DDL, SDL zur Definition von Datenbanken
+  \item DML(Datenmanipulationssprache), DCL(Datenkontrollsprache) zum Zugriff auf Datenbanken
+\end{itemize}
+SQL-Befehle:
+\begin{center}
+  \begin{tabular}{|p{4cm}|p{7cm}|}
+    \hline
+    \textbf{Befehl} & \textbf{Beschreibung} \\
+    \hline
+    \multicolumn{2}{|p{11cm}|}{SQL als DDL(Datendefinition)} \\
+    \hline
+    \texttt{CREATE SCHEMA} & Erstellt ein neues Schema in der Datenbank. \\
+    \hline    
+    Beispiel & \texttt{create schema Unternehmen authorization JSmith create table Projekt;} \\
+    \hline
+    Einfacher: & \texttt{PID int not null primary key,} \\}
+    \hline
+    \texttt{CREATE Table} & Erstellt eine neue Tabelle im Schema. \\
+    \hline
+    Beispiel & \texttt{create table Projekt (} \\ & \texttt{PID int not null,} \\ & \texttt{Name varchar(50) not null, } \\ & \texttt{primary key(PID));} \\
+    \hline
+  \end{tabular}
+\end{center}
+SQL-Keywords:
+\begin{center}
+  \begin{tabular}{|p{4cm}|p{7cm}|}
+    \hline
+    \textbf{Keyword} & \textbf{Beschreibung} \\
+    \hline
+    \multicolumn{2}{|p{11cm}|}{SQL als DDL(Datendefinition)} \\
+    \hline
+    \texttt{not null} & Attribut darf nicht leer sein. \\
+    \hline
+    \texttt{primary key} & Attribut ist Primärschlüssel der Tabelle. \\
+    \hline
+    \texttt{unique} & Attributwerte müssen eindeutig sein. \\
+    \hline
+    \texttt{foreign key} & Attribut verweist auf Primärschlüssel einer anderen Tabelle. \\
+    \hline
+    \texttt{references} & Definiert die referenzierte Tabelle und Spalte für den Fremdschlüssel. \\
+    \hline
+    Beispiel: & \texttt{foreign key (PID) references Projekt(PID)} \\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{block}{SQL als DDL}
+  \begin{itemize}
+    \item Schema, Tabellen, Datentypen, Constraints definieren
+    \item Strukturelle Änderungen mittels \texttt{drop}, \texttt{alter}
+    \item SCHEMA:
+    \begin{itemize}
+      \item Namensraum in DB
+      \item Hat eindeutigen Namen
+      \item Hat Autorisierungsbezeichner
+      \item Beschreibt jedes im Schema enthaltene Objekt
+      \begin{itemize}
+        \item Relationen
+        \item Wertebereiche
+        \item Restriktionen
+        \item Sichten
+        \item Zugriffsrechte
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{block}
 \end{document}

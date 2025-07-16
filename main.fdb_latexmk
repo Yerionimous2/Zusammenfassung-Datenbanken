@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1752500788.46371 "/Users/peterminor/Desktop/Latex/Zusammenfassung Datenbanken/main.tex" "main.pdf" "main" 1752500789.37643 0
-  "/Users/peterminor/Desktop/Latex/Zusammenfassung Datenbanken/main.tex" 1752500788.34341 8849 7202a3aadf2dfa0dcd1b93ac6c5f7549 ""
+["pdflatex"] 1752651581.23573 "/Users/peterminor/Desktop/Latex/Zusammenfassung Datenbanken/main.tex" "main.pdf" "main" 1752651582.18733 0
+  "/Users/peterminor/Desktop/Latex/Zusammenfassung Datenbanken/main.tex" 1752651581.01672 11726 c2a22ea91b38f7680dda28dbc58b1605 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -12,6 +12,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1136768653 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm" 1136768653 3584 3169d30142b88a27d4ab0e3468e963a2 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -31,6 +32,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb" 1215737283 135942 859a90cad7494a1e79c94baf546d7de5 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb" 1215737283 169201 9ebf99020dde51a5086e186761a34e8f ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/babel-german/ngerman.ldf" 1733867049 2289 142d4c4e9b9454344e08718ddd1c1070 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/babel-german/ngermanb.ldf" 1733867049 9519 07567e6a5751b56c75ede8e38d955275 ""
@@ -160,9 +162,9 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Uni Logo.png" 1752499985.85943 16117 b88484844774477697fc8d7c6546b7fa ""
   "config.tex" 1752500525.80981 966 b6fe738b9b67c266e8d36a0493e9fe35 ""
-  "main.aux" 1752500789.29976 543 a2328e55ecce43874ca193bba947d10f "pdflatex"
-  "main.tex" 1752500788.34341 8849 7202a3aadf2dfa0dcd1b93ac6c5f7549 ""
-  "main.toc" 1752500789.30046 280 dab1563f41066f1c3ac73dbce55c8864 "pdflatex"
+  "main.aux" 1752651582.10657 783 3a3ea6aa31a8800a2f5eae366feed3d6 "pdflatex"
+  "main.tex" 1752651581.01672 11726 c2a22ea91b38f7680dda28dbc58b1605 ""
+  "main.toc" 1752651582.10718 438 3cffafd6b44cf04a1139bcc40b460f22 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

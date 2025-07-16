@@ -296,11 +296,20 @@ SQL-Befehle:
     \texttt{alter index} & modifiziert einen Index \\
     \texttt{alter user/role} & ändert die Rollen eines Benutzers \\
     \hline
-    \texttt{ADD} & Fügt eine Spalte zu einer Tabelle hinzu \\
+    \texttt{Add} & Fügt eine Spalte zu einer Tabelle hinzu \\
     \hline
     Beispiel & \texttt{alter table Angestellte} \\
     & \texttt{ add foreign key (Abt) references Abteilung(Nummer);} \\
     \hline
+    \texttt{drop} & Löscht das angegebene Objekt. Kann auf Schemen, Tabellen, Sichten, Constraints und Spalten angewendet werden. \\
+    \hline
+    Beispiel & \texttt{drop table Arbeitszeiten;} \\
+    \hline
+    \texttt{rename} & Ändert den Namen einer Tabelle \\
+    \hline
+    \multicolumn{2}{|p{11cm}|}{SQL als DML(Datenmanipulation und -abfrage)} \\
+    \hline
+    \texttt{select [..] from} & Wählt die gegebenen Spalten aus der Tabelle aus und gibt sie zurück \\
   \end{tabular}
 \end{center}
 SQL-Keywords:
@@ -339,6 +348,32 @@ SQL-Keywords:
     \hline
     Date, Time, Datetimeoffset, interval, year, day, second? & \\
     \hline
+    \texttt{where} & filtert nach Bedingungen \\
+    \hline
+    Beispiel & \texttt{select * from Klausur where Note <= 4;} \\
+    \hline
+    \texttt{and} & Verknüpft Bedingungen, alle müssen erfüllt sein \\
+    \hline
+    \texttt{or} & Verknüpft Bedingungen, mindestens eine muss erfüllt sein \\
+    \hline
+    \texttt{order by} & Sortiert die Ergebnisse nach den angegebenen Spalten \\
+    \hline
+    \texttt{Asc} bzw. \texttt{desc} & Sortiert aufsteigend bzw. absteigend, Asc ist der Standardwert \\
+    \hline
+    Beispiel & \texttt{select * from Klausur order by Note desc;} \\
+    \hline
+    \texttt{group by} & Gruppiert die Ergebnisse nach den angegebenen Spalten \\
+    \hline
+    Beispiel & \texttt{select * from Belegung group by KursID;} \\
+    \hline
+    \texttt{distinct} & Entfernt doppelte Einträge aus dem Ergebnis \\
+    & Aber ist teuer und braucht man nicht unbedingt.\\
+    \hline
+    Beispiel & \texttt{select distinct Alter from Student;} \\
+    \hline
+    \texttt{as} & Benennt die Spalte um \\
+    Beispiel & \texttt{select Name as StudentName from Student;} \\
+    \hline
   \end{tabular}
 \end{center}
 
@@ -360,6 +395,7 @@ SQL-Keywords:
         \item Zugriffsrechte
       \end{itemize}
     \end{itemize}
+    \item \texttt{information\_schema} enthält Metadaten über die Datenbank
   \end{itemize}
 \end{block}
 
@@ -406,6 +442,44 @@ CREATE TABLE Belegung (
 );
 \end{lstlisting}
 
+\begin{block}{SQL als DML}
+  \begin{itemize}
+    \item Daten manipulieren und abfragen
+    \item Es können Duplikate auftreten, falls nicht gewünscht \texttt{distinct} nutzen
+  \end{itemize}
+\end{block}
+
+\begin{block}{Umsetzung der Operationen der relationalen Algebra in SQL}
+  \begin{center}
+    \begin{tabular}{|p{4cm}|p{7cm}|}
+      \hline
+      \textbf{Operation} & \textbf{SQL-Äquivalent} \\
+      \hline
+      Kartesisches Produkt & \texttt{select * from A, B;} \\
+      \hline
+      Join & \texttt{select * from A inner join b on <Bedingung>;} \\
+      \hline
+      Natürlicher Join & \texttt{select * from A natural join B;} \\
+      \hline
+      Outer Join & \texttt{select * from A left outer join B on <Bedingung>;} \\
+      & man kann auch \texttt{right} oder \texttt{full} nutzen. \\
+      \hline
+      Join mit sich selber mit Alias & \texttt{select * from Angestellte A, Angestellte B where A.ID = B.Vorgesetzte;} \\
+      \hline
+      Hinweis & wenn zweimal ein gleichnamiges Attribut existiert, kann man mit z.B. A.ID und B.ID darauf zugreifen \\
+      \hline
+      Vereinigung & \texttt{select * from A union select * from B;} \\
+      \hline
+      Schnitt & \texttt{select * from A intersect select * from B;} \\
+      \hline
+      Differenz & \texttt{select * from A minus select * from B;} \\
+      \hline
+      \multicolumn{2}{|p{11cm}|}{Bei Vereinigung, Schnitt und Differenz werden Duplikate entfernt} \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{block}
+
 \begin{block}{Datentypen in SQL}
   \begin{center}
     \begin{tabular}{|p{4cm}|p{7cm}|}
@@ -424,7 +498,8 @@ CREATE TABLE Belegung (
       \hline
       \texttt{create domain} & Definiert einen benutzerdefinierten Datentyp \\
       \hline
-      Beispiel & texttt{Gibs nicht, ist mir zu blöd gerade?}
+      Beispiel & Gibs nicht, ist mir zu blöd gerade? \\
+      \hline
     \end{tabular}
   \end{center}
 \end{block}

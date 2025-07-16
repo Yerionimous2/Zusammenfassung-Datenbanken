@@ -1,0 +1,252 @@
+\documentclass{article}
+
+\input{config.tex}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \includegraphics[width=0.3\textwidth]{Uni Logo.png} 
+    \vspace*{2cm}
+    
+    {\Large\bfseries Datenbanken Zusammenfassung\par}
+    \vspace{1.5cm}
+    
+    \textbf{Peter Minor}\\
+    Sommersemester 2025
+    
+    \vfill    
+    \vspace{1.5cm}
+    {\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section{Kapitel 2: Datenbank-Modellierung}
+
+\begin{block}{Modell}
+Ein Modell ist ein abstrahiertes Abbild der Realität. Es hilft beim Verständnis, bei der Kommunikation und Simulation komplexer Sachverhalte. In der Datenbankmodellierung wird zwischen konzeptuellen, logischen und physischen Modellen unterschieden.
+\end{block}
+
+\subsection*{Entity-Relationship-Modell (ER)}
+
+\begin{block}{Entitätstyp}
+Ein Entitätstyp (auch Objekttyp) ist eine Klasse gleichartiger Objekte. Darstellung im ER-Diagramm: Rechteck.
+\end{block}
+
+\begin{block}{Attribut}
+Ein Attribut beschreibt eine Eigenschaft eines Entitätstyps. Darstellung: Ellipse. Attribute können einfach, zusammengesetzt, mehrwertig oder berechnet sein.
+\end{block}
+
+\begin{block}{Beziehungstyp (Relationship)}
+Ein Beziehungstyp stellt eine Relation zwischen Entitäten dar. Darstellung: Raute. Die Kardinalität (1:1, 1:n, m:n) beschreibt die Anzahl möglicher Zuordnungen.
+\end{block}
+
+\begin{block}{Schlüssel}
+Ein Schlüssel ist ein Attribut (oder eine Attributkombination), das jede Entität eindeutig identifiziert. Starke Entitäten haben eigene Schlüssel; schwache Entitäten benötigen eine identifizierende Beziehung zu einer starken Entität.
+\end{block}
+
+\begin{block}{Partizipation}
+Beschreibt, ob eine Entität zwingend an einer Beziehung teilnehmen muss:
+\begin{itemize}
+  \item \textbf{totale Partizipation}: jede Entität muss beteiligt sein
+  \item \textbf{partielle Partizipation}: Beteiligung ist optional
+\end{itemize}
+\end{block}
+
+\begin{block}{Spezialisierung \& Generalisierung (EER)}
+\begin{itemize}
+  \item \textbf{Spezialisierung}: Zerlegung eines Supertyps in Subtypen
+  \item \textbf{Generalisierung}: Vereinigung ähnlicher Entitätstypen zu einem Supertyp
+\end{itemize}
+\end{block}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm, every node/.style={scale=0.85}]
+  % Entity types
+  \node[draw, rectangle] (Student) {Student};
+  \node[draw, rectangle, right=5cm of Student] (Vorlesung) {Vorlesung};
+  \node[draw, rectangle, above=3cm of Vorlesung] (Professor) {Professor};
+
+  % Attributes
+  \node[draw, ellipse, below=1.2cm of Student] (MatrNr) {MatrNr};
+  \node[draw, ellipse, below left=1.2cm and 0.5cm of Student] (SName) {Name};
+
+  \node[draw, ellipse, below=1.2cm of Vorlesung] (VorlNr) {VorlNr};
+  \node[draw, ellipse, below right=1.2cm and 0.5cm of Vorlesung] (Titel) {Titel};
+
+  \node[draw, ellipse, above left=1.2cm and 0.5cm of Professor] (PersNr) {PersNr};
+  \node[draw, ellipse, above=1.2cm of Professor] (PName) {Name};
+
+  % Relationship types
+  \node[draw, diamond, below=0.8cm of $(Student)!0.5!(Vorlesung)$] (hoert) {hört};
+  \node[draw, diamond, right=2cm of Professor] (liest) {liest};
+
+  % Connections
+  \draw (Student) -- (hoert);
+  \draw (Vorlesung) -- (hoert);
+
+  \draw (Professor) -- (liest);
+  \draw (Vorlesung) -- (liest);
+
+  \draw (Student) -- (MatrNr);
+  \draw (Student) -- (SName);
+
+  \draw (Vorlesung) -- (VorlNr);
+  \draw (Vorlesung) -- (Titel);
+
+  \draw (Professor) -- (PersNr);
+  \draw (Professor) -- (PName);
+\end{tikzpicture}
+\end{center}
+
+\section{Kapitel 3: Das relationale Datenmodell}
+
+\begin{block}{Relation}
+Eine Relation ist eine Tabelle mit Attributen (Spalten) und Tupeln (Zeilen). Sie basiert auf dem mathematischen Konzept einer Menge von Tupeln.
+\end{block}
+
+\begin{block}{Primärschlüssel}
+Ein Attribut oder Attributkombination, die ein Tupel eindeutig identifiziert.
+\end{block}
+
+\begin{block}{Fremdschlüssel}
+Ein Attribut, das auf den Primärschlüssel einer anderen Relation verweist und referentielle Integrität sicherstellt.
+\end{block}
+
+\subsection*{Relationale Algebra}
+
+\begin{block}{Selektion ($\sigma$)}
+Filtert Tupel, die eine bestimmte Bedingung erfüllen. Beispiel:
+\[
+\sigma_{Note \geq 4}(\text{Pruefungen})
+\]
+\end{block}
+
+\begin{block}{Projektion ($\pi$)}
+Reduziert die Anzahl der Attribute. Beispiel:
+\[
+\pi_{Name, MatrNr}(\text{Studierende})
+\]
+\end{block}
+
+\begin{block}{Vereinigung $\cup$ Schnitt $\cap$ Differenz $-$}
+Klassische Mengenoperationen für Relationen mit gleichem Schema.
+\end{block}
+
+\begin{block}{Kartesisches Produkt ($\times$)}
+Kombiniert zwei Relationen durch paarweise Tupelkombination.
+\end{block}
+
+\begin{block}{Join ($\bowtie$)}
+Verknüpft zwei Relationen über gemeinsame Attribute. Spezialformen:
+\begin{itemize}
+  \item natürlicher Join
+  \item theta-Join
+  \item equi-Join
+\end{itemize}
+\end{block}
+
+\begin{block}{Umbenennung ($\rho$)}
+Benennung einer Relation oder ihrer Attribute neu, z.B. zur besseren Lesbarkeit von Ausdrücken.
+\end{block}
+
+
+Beispielhafte Relationen:
+\begin{itemize}
+  \item \textbf{Student}(\underline{MatrNr}, Name)
+  \item \textbf{Professor}(\underline{PersNr}, Name)
+  \item \textbf{Vorlesung}(\underline{VorlNr}, Titel)
+  \item \textbf{hört}(\underline{MatrNr}, \underline{VorlNr}) \\
+        Fremdschlüssel: MatrNr $\rightarrow$ Student, VorlNr $\rightarrow$ Vorlesung
+  \item \textbf{liest}(\underline{PersNr}, \underline{VorlNr}) \\
+        Fremdschlüssel: PersNr $\rightarrow$ Professor, VorlNr $\rightarrow$ Vorlesung
+\end{itemize}
+
+\section{Kapitel 4: Relationale Entwurfstheorie}
+
+\begin{block}{Funktionale Abhängigkeit}
+Eine Attributmenge $\alpha$ bestimmt eine andere Attributmenge $\beta$, geschrieben als:
+\[
+\alpha \rightarrow \beta
+\]
+gilt genau dann, wenn für alle Tupel $t_1$, $t_2$ gilt: $t_1[\alpha] = t_2[\alpha] \Rightarrow t_1[\beta] = t_2[\beta]$
+\end{block}
+
+\begin{block}{Schlüssel und Superschlüssel}
+\begin{itemize}
+  \item \textbf{Superschlüssel:} $\alpha$ ist Superschlüssel, wenn $\alpha \rightarrow R$
+  \item \textbf{Kandidatenschlüssel:} Minimaler Superschlüssel
+\end{itemize}
+\end{block}
+
+\begin{block}{Ziel der Normalisierung}
+Die Normalisierung dient dazu, Redundanzen zu vermeiden und Anomalien (Einfüge-, Update-, Löschanomalien) zu verhindern. Dazu wird ein Relationenschema anhand funktionaler Abhängigkeiten in wohldefinierte Formen überführt.
+\end{block}
+
+\begin{block}{Überblick über die Normalformen}
+\begin{itemize}
+  \item \textbf{1NF (erste Normalform):} 
+    Alle Attributwerte sind atomar (nicht weiter teilbar).
+  \item \textbf{2NF (zweite Normalform):} 
+    1NF erfüllt + jedes Nicht-Schlüsselattribut ist voll funktional abhängig vom gesamten Primärschlüssel.
+  \item \textbf{3NF (dritte Normalform):} 
+    2NF erfüllt + keine transitiven Abhängigkeiten von Nicht-Schlüsselattributen.
+  \item \textbf{BCNF (Boyce-Codd Normalform):} 
+    Für jede nicht-triviale funktionale Abhängigkeit $\alpha \rightarrow \beta$ gilt: $\alpha$ ist ein Superschlüssel.
+\end{itemize}
+\end{block}
+
+\begin{block}{Vorgehen zur Normalisierung}
+\begin{enumerate}
+  \item Ermittele alle funktionalen Abhängigkeiten (FDs).
+  \item Bestimme alle Schlüsselkandidaten.
+  \item Prüfe die aktuelle Normalform.
+  \item Zerlege die Relation bei Verstoß in mehrere Relationen:
+  \begin{itemize}
+    \item Zerlege so, dass jede FD in einer Relation vollständig erfüllt wird.
+    \item Erhalte dabei die Verlustfreiheit und Abhängigkeitserhaltung.
+  \end{itemize}
+\end{enumerate}
+\end{block}
+
+\begin{block}{Beispiel: Normalisierung auf 3NF}
+Gegeben sei folgende Relation:
+\[
+R(\underline{MatrNr}, Name, Studiengang, Fakultaet)
+\]
+mit den funktionalen Abhängigkeiten:
+\begin{align*}
+\text{F1: } & \text{MatrNr} \rightarrow \text{Name, Studiengang, Fakultaet} \\
+\text{F2: } & \text{Studiengang} \rightarrow \text{Fakultaet}
+\end{align*}
+
+\textbf{Analyse:}
+\begin{itemize}
+  \item F1: MatrNr ist ein Schlüsselkandidat.
+  \item F2: transitive Abhängigkeit: MatrNr $\rightarrow$ Studiengang $\rightarrow$ Fakultaet
+  \item $\Rightarrow$ Verstoß gegen 3NF.
+\end{itemize}
+
+\textbf{Zerlegung in 3NF:}
+\begin{itemize}
+  \item $R_1(\underline{MatrNr}, Name, Studiengang)$
+  \item $R_2(\underline{Studiengang}, Fakultaet)$
+\end{itemize}
+
+\textbf{Ergebnis:} Beide Relationen sind in 3NF, keine Redundanz, keine Anomalien.
+\end{block}
+
+\begin{block}{Anomalien}
+Anomalien treten auf, wenn Relationen schlecht strukturiert sind – meist durch Redundanz und fehlende Trennung von unabhängigen Daten. Es gibt drei Hauptarten:
+\begin{itemize}
+  \item \textbf{Einfügeanomalie:} Daten können nicht eingefügt werden, ohne andere zu erzeugen
+  \item \textbf{Updateanomalie:} Inkonsistenz bei mehrfacher Speicherung derselben Information
+  \item \textbf{Löschanomalie:} Verlust nützlicher Informationen durch Löschung eines Tupels
+\end{itemize}
+\end{block}
+
+
+\end{document}

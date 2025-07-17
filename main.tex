@@ -598,4 +598,61 @@ CREATE TABLE Belegung (
   \end{center}
 \end{block}
 
+\subsection*{Programmiermethoden in SQL}
+\begin{block}{Zugriff auf die DB}
+  Der Zugriff auf die Datenbank kann von verschiedenen Gruppen erfolgen:
+  \begin{itemize}
+    \item Administratoren: Die Befehle von den Administratoren werden in der Regel direkt auf der Datenbank ausgeführt.
+    \item Anwendungen: Anwendungen nutzen in der Regel eine Schnittstelle (API) der Datenbank, um auf sie zuzugreifen.
+    \item Gelegentliche Nutzer: Die Befehle von gelegentlichen Nutzern werden in der Regel über eine interaktive Anfrage passieren, die erst einen Übersetzer durchlaufen, um dann auf der Datenbank ausgeführt zu werden.
+  \end{itemize}
+\end{block}
+
+\begin{block}{SQL-Programmiermethoden}
+  Es gibt mehrere Möglichkeiten, wie ein Anwendungsprogramm auf eine Datenbank zugreifen kann:
+  \begin{itemize}
+    \item Direkter Aufruf
+    \begin{itemize}
+      \item Aufruf von SQL-Befehlen direkt im Programm
+    \end{itemize}
+    \item Embedded/Dynamic SQL
+    \begin{itemize}
+      \item SQL Wird in die Programmiersprache eingebettet
+      \item SQL-Befehle werden dynamisch zur Laufzeit generiert
+    \end{itemize}
+    \item Module Language
+    \begin{itemize}
+      \item SQL wird in Module ausgelagert, die in der Programmiersprache aufgerufen werden
+    \end{itemize}
+    \item Call-Level APIs
+    \begin{itemize}
+      \item Standardisierte Schnittstellen (z.B. ODBC, JDBC) für den Datenbankzugriff
+      \item Der Programmierer sieht kein SQL mehr (Mappings)
+    \end{itemize}
+  \end{itemize}
+\end{block}
+
+\begin{block}{impedance mismatch}
+  \begin{itemize}
+    \item Relationales Modell wird von objektorientieren Programmiersprachen nicht unterstützt
+    \item SQL basiert auf Mengen, OO-Programmiersprachen auf Objekten
+    \item Keine Pointer o.Ä.
+    \item Lösung: Embedded SQL
+  \end{itemize}
+\end{block}
+
+\begin{block}{Embedded SQL}
+  \begin{itemize}
+      \item Problem wird (teilweise) umgangen, indem Variablen zwischen SQL und der Programmiersprache 'geteilt' werden
+      \item \texttt{exec sql begin declare section;} bzw. \texttt{[..]end[..];}
+      \item Darin können Variablen deklariert werden:
+      \item \texttt{char var1[20]; int var2;}
+      \item Dann kann in die Variablen geschrieben werden:
+      \item \texttt{exec sql insert into [..] values (:var1, :var2);}
+      \item Außerdem kann gelesen werden:
+      \item \texttt{exec sql select [..] into :var1 from [..];}
+      \item Variable \texttt{SQLSTATE} enthält den Status der letzten SQL-Anweisung und ggf. Fehlercodes
+    \end{itemize}
+\end{block}
+
 \end{document}

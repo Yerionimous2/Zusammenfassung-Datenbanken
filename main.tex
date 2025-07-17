@@ -320,7 +320,19 @@ SQL-Befehle:
     \hline
     Beispiel & \texttt{insert into Student (MNr, VName, NName, Fach) values (123456, 'Max', 'Mustermann', 'Informatik');} \\
     & Alle nicht angegebenen Infos werden zu NULL bzw. default. Bei SERIAL wird automatisch eingefügt. \\
-    & Übe\\
+    \hline
+    \texttt{delete from [..]} & Löscht Tupel aus der angegebenen Tabelle. Where bestimmt, was gelöscht werden soll. \\
+    & überprüft automatisch die Vorgaben der Datenbank und weist ggf. zurück \\
+    \hline
+    \texttt{update [..] set [..]} & setzt bei den Tupeln der Tabelle Attributwerte. \\
+    &  kann mit where spezifiziert werden. \\
+    \hline
+    \texttt{merge into[..] using [..]} & Fügt zwei Tabellen zusammen, die gleiche Attribute erwarten. \\
+    &  Durch \texttt{when matched} bzw. \texttt{when not matched} kann das Verhalten beim mergen bestimmt werden. \\
+    \hline
+    Beispiel & \texttt{merge into AllStudent c using Student a on AllStudent.MNr = Student.MNr} \\
+    & \texttt{when matched then update set c.VName = a.VName, c.NName = a.NName...} \\
+    & \texttt{when not matched then insert values (a.MNr, a.VName, a.NName, a.Fach);} \\
     \hline
   \end{longtable}
 \end{center}
@@ -552,8 +564,6 @@ CREATE TABLE Belegung (
       \texttt{Char(n), Varchar(n)} & Text, bei Char wird bei kürzerer Eingabe mit ' ' aufgefüllt, bei Varchar nicht \\
       \hline
       \texttt{create domain} & Definiert einen benutzerdefinierten Datentyp \\
-      \hline
-      Beispiel & Gibs nicht, ist mir zu blöd gerade? \\
       \hline
     \end{tabular}
   \end{center}

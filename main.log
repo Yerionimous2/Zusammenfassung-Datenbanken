@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  17 JUL 2025 11:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  17 JUL 2025 12:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -554,156 +554,168 @@ Underfull \hbox (badness 1173) in paragraph at lines 304--305
 []|\T1/cmr/m/n/10 Löscht das an-ge-ge-be-ne Ob-jekt. Kann auf
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
+[]|\T1/cmtt/m/n/10 insert into Student (MNr, VName,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
+\T1/cmtt/m/n/10 NName, Fach) values (123456, 'Max',
+ []
+
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 350--351
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 []|\T1/cmtt/m/n/10 foreign key (PID) references
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 365--366
 []|\T1/cmtt/m/n/10 select * from Klausur where Note <=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 []|\T1/cmtt/m/n/10 select * from Projekt, ArbeitetAn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 \T1/cmtt/m/n/10 where Nummer = projNr group by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--371
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 []|\T1/cmtt/m/n/10 select * from Student where
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--371
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 \T1/cmtt/m/n/10 Durchschnittsnote in (0.7, 1.0, 1.7,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 []|\T1/cmtt/m/n/10 select * from Klausur order by Note
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
 []|\T1/cmtt/m/n/10 select * from Belegung group by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--389
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
 []|\T1/cmtt/m/n/10 select Name as StudentName from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 []|\T1/cmtt/m/n/10 select * from Student where Name like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 []|\T1/cmtt/m/n/10 select * from Student where Name like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--420
+Underfull \hbox (badness 10000) in paragraph at lines 427--427
 []|\T1/cmtt/m/n/10 is null \T1/cmr/m/n/10 bzw. \T1/cmtt/m/n/10 is not
  []
 
 [8] [9]
 
 [10]
-Overfull \hbox (62.9035pt too wide) in paragraph at lines 485--486
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 492--493
 [][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
-[]\T1/cmtt/m/n/10 select * from A inner join b on
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
-[]\T1/cmtt/m/n/10 select * from A left outer join B on
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
-[]\T1/cmtt/m/n/10 select * from Angestellte A,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
-\T1/cmtt/m/n/10 Angestellte B where A.ID =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 518--519
-[]\T1/cmtt/m/n/10 select * from A union select * from
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 520--521
-[]\T1/cmtt/m/n/10 select * from A intersect select *
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 522--523
-[]\T1/cmtt/m/n/10 select * from A minus select * from
- []
-
-
-Overfull \hbox (4.96135pt too wide) in paragraph at lines 500--527
- [] 
  []
 
 
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 538--538
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
+[]\T1/cmtt/m/n/10 select * from A inner join b on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
+[]\T1/cmtt/m/n/10 select * from A left outer join B on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
+[]\T1/cmtt/m/n/10 select * from Angestellte A,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
+\T1/cmtt/m/n/10 Angestellte B where A.ID =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+[]\T1/cmtt/m/n/10 select * from A union select * from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+[]\T1/cmtt/m/n/10 select * from A intersect select *
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
+[]\T1/cmtt/m/n/10 select * from A minus select * from
+ []
+
+
+Overfull \hbox (4.96135pt too wide) in paragraph at lines 508--535
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--546
 []\T1/cmtt/m/n/10 Float, Real, Double
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 538--539
+Underfull \hbox (badness 7740) in paragraph at lines 546--547
 []\T1/cmr/m/n/10 Gleitkommazahlen, Ap-pro-xi-ma-tiv. Dou-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 540--540
+Underfull \hbox (badness 10000) in paragraph at lines 548--548
 []\T1/cmtt/m/n/10 Decimal(i, j),
  []
 
 
-Overfull \hbox (4.96135pt too wide) in paragraph at lines 532--551
+Overfull \hbox (4.96135pt too wide) in paragraph at lines 540--559
  [] 
  []
 
 
 
-[12] (./main.aux)
+[12]
+
+[13] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 21811 strings out of 473190
- 456487 string characters out of 5715801
- 895499 words of memory out of 5000000
- 44723 multiletter control sequences out of 15000+600000
+ 21810 strings out of 473190
+ 456471 string characters out of 5715801
+ 898499 words of memory out of 5000000
+ 44722 multiletter control sequences out of 15000+600000
  567340 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 121i,11n,124p,520b,1064s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 121i,11n,124p,520b,1011s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (13 pages, 245405 bytes).
+Output written on main.pdf (14 pages, 246742 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 121 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

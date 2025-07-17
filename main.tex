@@ -315,6 +315,13 @@ SQL-Befehle:
     \multicolumn{2}{|p{11cm}|}{Gleiches funktioniert mit +,- und / auf Zahlen.} \\
     \multicolumn{2}{|p{11cm}|}{Für Konkatinieren von Zeichenketten verwendet man \texttt{||}.} \\
     \hline
+    \texttt{insert into} & fügt ein neues Tupel in eine Tabelle ein \\
+    & überprüft automatisch die Vorgaben der Datenbank und weist ggf. zurück \\
+    \hline
+    Beispiel & \texttt{insert into Student (MNr, VName, NName, Fach) values (123456, 'Max', 'Mustermann', 'Informatik');} \\
+    & Alle nicht angegebenen Infos werden zu NULL bzw. default. Bei SERIAL wird automatisch eingefügt. \\
+    & Übe\\
+    \hline
   \end{longtable}
 \end{center}
 SQL-Keywords:
@@ -492,6 +499,7 @@ CREATE TABLE Belegung (
     \item Daten manipulieren und abfragen
     \item Es können Duplikate auftreten, falls nicht gewünscht \texttt{distinct} nutzen
     \item Es wird zuerst Join dann Gruppierung und dann Aggregation durchgeführt
+    \item Abfragen können auch Unterabfragen enthalten, also verschachtelt sein.
   \end{itemize}
 \end{block}
 

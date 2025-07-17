@@ -334,6 +334,16 @@ SQL-Befehle:
     & \texttt{when matched then update set c.VName = a.VName, c.NName = a.NName...} \\
     & \texttt{when not matched then insert values (a.MNr, a.VName, a.NName, a.Fach);} \\
     \hline
+    \multicolumn{2}{|p{11cm}|}{SQL als VCL(Sichtendefinition)} \\
+    \hline
+    \texttt{create view [..] as select [..]} & Erstellt eine Sicht, die aus der Select-Abfrage resultiert. \\
+    \hline
+    \multicolumn{2}{|p{11cm}|}{SQL als DCL(Rechteverwaltung)} \\
+    \hline
+    \texttt{grant [..] on [..] to} &  Gibt das spezifitierte Recht an der spezifizierten Tabelle an die spezifizierten Nutzer.\\
+    \hline
+    \texttt{revoke [..] on [..] from} & Entzieht das spezifitierte Recht an der spezifizierten Tabelle von den spezifizierten Nutzern. \\
+    \hline
   \end{longtable}
 \end{center}
 SQL-Keywords:
@@ -545,6 +555,25 @@ CREATE TABLE Belegung (
       \hline
     \end{tabular}
   \end{center}
+\end{block}
+
+\begin{block}{SQL als VDL(Verwaltung der Sichten)}
+  Eine Sicht ist eine virtuelle Tabelle, die aus einer Abfrage resultiert.
+  \begin{itemize}
+    \item Können, müssen aber nicht in der Datenbank gespeichert werden
+    \item Werden immer aktuell gehalten
+    \item Können wie Tabellen abgefragt werden
+    \item Manipulation oft nicht möglich(non-updatable views)
+  \end{itemize}
+\end{block}
+
+\begin{block}{SQL als DCL(Verwaltung der Zugriffsrechte)}
+  \begin{itemize}
+    \item \texttt{grant} und \texttt{revoke} für Rechteverwaltung
+    \item Rechte können auf Objekte wie Tabellen, Sichten, Prozeduren angewendet werden
+    \item Rechte: SELECT, INSERT, UPDATE, DELETE, EXECUTE
+    \item Beispiel: \texttt{grant select on Tabelle to Benutzer;}
+  \end{itemize}
 \end{block}
 
 \begin{block}{Datentypen in SQL}

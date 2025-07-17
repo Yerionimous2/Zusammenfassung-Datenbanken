@@ -365,6 +365,10 @@ SQL-Keywords:
     \hline
     \texttt{or} & Verknüpft Bedingungen, mindestens eine muss erfüllt sein \\
     \hline
+    \texttt{in} & Überprüft, ob ein Wert in einer Liste von Werten enthalten ist \\
+    \hline
+    Beispiel & \texttt{select * from Student where Durchschnittsnote in (0.7, 1.0, 1.7, 2.0);} \\
+    \hline
     \texttt{order by} & Sortiert die Ergebnisse nach den angegebenen Spalten \\
     \hline
     \texttt{Asc} bzw. \texttt{desc} & Sortiert aufsteigend bzw. absteigend, Asc ist der Standardwert \\
@@ -382,6 +386,7 @@ SQL-Keywords:
     \hline
     \texttt{as} & Benennt die Spalte um \\
     Beispiel & \texttt{select Name as StudentName from Student;} \\
+    & Auf Aliasse der äußeren Anfrage kann man innen zugreifen, anders herum aber nicht. \\
     \hline
     \texttt{count} & Zählt die Anzahl der Tupel \\
     \hline
@@ -405,6 +410,14 @@ SQL-Keywords:
     & sucht alle Studierenden raus, die einen Namen haben, der mit T anfängt \\
     \hline
     \texttt{between} & Überprüft, ob ein Wert in einem Intervall liegt \\
+    \hline
+    \texttt{exists} & Überprüft, ob das Ergebnis einer Unterabfrage nicht leer ist \\
+    \hline
+    \texttt{not} & Negiert eine Bedingung \\
+    \hline
+    \texttt{unique} & überprüft, ob eine Multimenge Duplikate enthält \\
+    \hline
+    \texttt{is null} bzw. \texttt{is not null} & Überprüft, ob ein Attributwert NULL ist. = NULL ist nicht möglich! \\
     \hline
   \end{longtable}
 \end{center}
@@ -500,6 +513,7 @@ CREATE TABLE Belegung (
       Join mit sich selber mit Alias & \texttt{select * from Angestellte A, Angestellte B where A.ID = B.Vorgesetzte;} \\
       \hline
       Hinweis & wenn zweimal ein gleichnamiges Attribut existiert, kann man mit z.B. A.ID und B.ID darauf zugreifen \\
+      & Auf Aliasse der äußeren Anfrage kann man innen zugreifen, anders herum aber nicht. \\
       \hline
       Vereinigung & \texttt{select * from A union select * from B;} \\
       \hline

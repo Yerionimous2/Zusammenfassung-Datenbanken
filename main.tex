@@ -655,4 +655,64 @@ CREATE TABLE Belegung (
     \end{itemize}
 \end{block}
 
+\begin{block}{Cursor in Embedded SQL}
+  Trotzdem bleibt bestehen: Das Ergebnis von SQL-Abfragen sind meistens Mengen. Lösung: Cursors
+  \begin{itemize}
+    \item Cursors sind Zeiger auf eine Ergebnismenge
+    \item Sie ermöglichen es, durch die Ergebnismenge zu iterieren
+    \item Beispiel:
+    \begin{lstlisting}
+    exec sql begin declare section;
+    char var1[20];
+    char SQLSTATE[6];
+    exec sql end declare section;
+    exec sql declare c1 cursor for select VName
+                              from Student;
+    exec sql open c1;
+    while(true) {
+        exec sql fetch c1 into :var1;
+        if (SQLSTATE == '02000') break;
+        // Verarbeite var1
+    }
+    exec sql close c1;
+    \end{lstlisting}
+  \end{itemize}
+\end{block}
+Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
+\begin{block}{Dynamic SQL}
+  \begin{itemize}
+    \item Standard für dynamische SQL-Abfragen in Programmen
+    \item Also keine Deklaration vorab
+    \item Zwei Möglichkeiten:
+    \item Execute Immediate: Direkte Ausführung eines SQL-Befehls
+    \item Prepare and Execute: SQL-Befehl wird vorbereitet und dann (mehrfach) ausgeführt
+    \item Großer Nachteil: SQL Injection möglich, wenn nicht richtig abgefangen wird
+  \end{itemize}
+\end{block}
+
+\begin{block}{Module Language}
+  \begin{itemize}
+    \item Trennung von SQL und Anwendungsprogramm
+    \item Modul enthält SQL-Befehle und Deklarationen
+    \item Anwendungsprogramm ruft Modul auf
+  \end{itemize}
+\end{block}
+
+\begin{block}{Call-Level APIs}
+  \begin{itemize}
+    \item Standardisierte Schnittstellen für den Datenbankzugriff
+    \item Beispiel: ODBC, SQL/CLI, JDBC
+    \item Programmierer sieht kein SQL mehr, sondern nur die API-Funktionen
+    \item Mappings zwischen Objekten und Relationen
+  \end{itemize}
+\end{block}
+
+\begin{block}{ORM: Mappings zwischen Objekten und Relationen}
+  \begin{itemize}
+    \item Alles nicht perfekt, da Objekte und Relationen unterschiedliche Konzepte sind
+    \item ORM (Object-Relational Mapping) versucht, diese Lücke zu schließen
+    \item Mappings zwischen Objekten und Relationen
+    \item Framework verbirgt SQL komplett und bietet objektorientierte API
+  \end{itemize}
+\end{block}
 \end{document}

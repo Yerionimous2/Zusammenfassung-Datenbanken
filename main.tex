@@ -715,4 +715,75 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
     \item Framework verbirgt SQL komplett und bietet objektorientierte API
   \end{itemize}
 \end{block}
+
+\section{Kapitel 6: Anfrageverarbeitung}
+
+\begin{block}{Motivation}
+  \begin{itemize}
+    \item DBMS muss viele Anfragen möglichst schnell und minimalen Ressourcen verarbeiten
+    \item $\Rightarrow$ effiziente Anfrageverarbeitung notwendig
+  \end{itemize}
+\end{block}
+
+\begin{block}{DBMS Aufbau}
+  \begin{itemize}
+    \item Zuerst gehen die Anfragen an die Anfrageverarbeitung, die aus einem Operator-Evaluierer und einem Optimierer besteht
+    \item Danach durchlaufen sie die Speicherung, zuerst die Dateiverwaltungs- und Zugriffsmethoden
+    \item Danach den Puffer-Verwalter und den Verwalter für externen Speicherbedarf
+    \item Diese Interagieren mit dem Transaktionsmanagement, das aus einem Transaktionsverwalter, einem Sperrverwalter und einem Wiederherstellungsverwalter besteht
+    \item Danach geht die Anfrage an die Datenbank, die in der Realität aus Dateien und Daten und Indices besteht
+  \end{itemize}
+  Schaubild Kapitel 6, Seite 4
+\end{block}
+
+\subsection*{Speicherung}
+
+\begin{block}{Speicherung}
+  \begin{itemize}
+    \item In großen Datenbanken sind die Daten zu groß, um in den Hauptspeicher zu passen
+    \item Speicherung soll eine große Menge an Speicherplatz liefern
+    \item Dabei  soll der Zugriff für möglichst geringe Kosten möglichst schnell sein
+    \item Die Daten sollen gesichtert sein, Verlust der Daten ist nicht akzeptabel
+    \item In einem normalen Computer wird das folgendermaßen umgesetzt:
+    \begin{tabular}{|p{4cm}|p{3cm}|p{2cm}|}
+      \hline
+      \textbf{Speichertyp} & \textbf{Kapazität} & \textbf{Latenz} \\
+      \hline
+      CPU(Register) & Bytes & < 1 ns \\
+      \hline
+      Cache-Speicher & Kilo-/Megabytes & < 10 ns \\
+      \hline
+      Hauptspeicher(RAM) & Gigabytes & 20-100 ns \\
+      \hline
+      Flash-Speicher/SSD & Terabytes & 30-250 $\mu$s \\
+      \hline
+      Festplatte/HDD & Tera-Petabytes & 3-10ms \\
+      \hline
+      Bandautomat & Petabytes & variiert \\
+      \hline
+    \end{tabular}
+  \end{itemize}
+\end{block}
+
+\begin{block}{Magnetische (Fest-)Platten}
+  \begin{itemize}
+    \item Arme werden auf bestimmte Spur bewegt, Platte dreht konstant
+    \item Spur: Kreis auf de Oberfläche der Platte
+    \item Sektor: Eine Spur wird in Sektoren unterteilt, die kleinste adressierbare Einheit
+    \item Block: Mehrere Sektoren zusammen in eine logische Einheit gefasst
+    \item Zugriffszeit besteht aus:
+    \begin{itemize}
+      \item Suchzeit $t_s$: Zeit, um den Arm auf die richtige Spur zu bewegen
+      \item Wartezeit $t_r$: Zeit, bis der Block unter dem Lesekopf ist
+      \item Lese- bzw. Schreibzeit $t_{tr}$
+      \item Gesamte Zugriffszeit $t_a = t_s + t_r + t_{tr}$
+    \end{itemize}
+    \item Sequentieller Zugriff, bei dem die Blöcke direkt hintereinander liegen ist schneller als Wahlfreier Zugriff
+    \item Sehr viel schneller.
+  \end{itemize}
+\end{block}
+
+\begin{block}{Speichernetzwerk(SAN)}
+  
+\end{block}
 \end{document}

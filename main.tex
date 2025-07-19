@@ -734,6 +734,11 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
     \item Danach geht die Anfrage an die Datenbank, die in der Realität aus Dateien und Daten und Indices besteht
   \end{itemize}
   Schaubild Kapitel 6, Seite 4
+  \begin{itemize}
+    \item Die Verwaltung eines DBMS ähnelt sehr der eines Betriebssystems, daher
+    \item schaltet es häufig Betriebsdienstsysteme aus, um gegenseitige Störungen zu verhindern
+    \item Das DBMS weiß mehr über die Zugriffsmuster, was Prefetching(s.u. In der Praxis) ermöglicht
+  \end{itemize}
 \end{block}
 
 \subsection*{Speicherung}
@@ -784,6 +789,136 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
 \end{block}
 
 \begin{block}{Speichernetzwerk(SAN)}
-  
+  \begin{itemize}
+    \item Speichernetzwerk, das aus mehreren Festplatten bzw. Servern mit jeweils mehreren Festplatten besteht
+    \item Zeigt sich aber als 'logische Platten' an das DBMS
+    \item Vorteile: Hardwarebeschleunidung, Redundanz(Fehlertoleranz), einfachere Verwaltung, Flexibilität
+    \item Alternativ: Cloud-Speicher, der über das Internet zugänglich ist
+    \item System kostet mehr und ist Langsamer(Redundanz von bis zu 1s), aber ist zuverlässiger
+  \end{itemize}
+\end{block}
+
+\subsection*{Verwaltung}
+
+\begin{block}{Abstrahierung der Technischen Details vom Speicher(Seiten)}
+  \begin{itemize}
+    \item Eine 'Seite' ist eine logische Speichereinheit(4-64 KB) für die Restlichen Komponenten
+    \item Die Seitennummer weist auf die physische Adresse der Seite hin
+    \begin{itemize}
+      \item Betriebssystemdatei inkl. Versatz
+      \item Kopf-Sektor-Spur von Festplatte
+      \item Angabe für ein Bandgerät und -nummer inkl. Versatz
+    \end{itemize}
+  \end{itemize}
+\end{block}
+
+\begin{block}{leere Seiten}
+  \begin{itemize}
+    \item \texttt{insert} sucht leere Seite zum Einfügen
+    \item \texttt{delete} gibt die Seite wieder frei
+    \item Leere Seiten müssen Persistenz gespeichert werden
+    \begin{itemize}
+      \item Als Liste von leeren Seiten(Hinzufügen, wenn Seite leer wird, entfernen, wenn Seite alloziert wird)
+      \item Als Bitmap, Bit p wird umgeklappt, wenn die Seite (de-)alloziert wird
+    \end{itemize}
+  \end{itemize}
+\end{block}
+
+\subsection*{Puffer}
+\begin{block}{Puffer-Verwalter}
+  \begin{itemize}
+    \item Vermittelt zwischen externem Speicher(Festplatten etc) und internem Speicher(Hauptspeicher)
+    \item Verwaltet Teil des Hauptspeichers(buffer pool)
+    \item Externe Seiten werden in den Puffer geladen
+    \item \texttt{pin} und \texttt{unpin}, um Seiten anzufordern und freizugeben
+    \item Hier wird die Seitennummer angegeben und beim freigeben auch, ob die Seite bearbeitet wurde
+    \item Wenn die Seite bereits im Puffer ist, wird direkt die Referenz zurückgegeben
+    \item Wenn die Seite nicht im Puffer ist, wird sie geladen und die Referenz zurückgegeben
+    \item Es wird gespeichert, wie oft eine Seite angefordert wurde, damit benutze Seiten immer im Puffer bleiben
+    \item Wenn der Puffer voll ist, muss eine Ersetzungsstrategie angewendet werden
+  \end{itemize}
+\end{block}
+
+\begin{block}{Ersetzungsstrategien}
+  Es wird ausgewählt, welche Seite aus dem Puffer entfernt wird, wenn eine neue Seite geladen werden soll.
+  \begin{itemize}
+    \item LRU: Seite mit dem am längsten zurückliegenden unpin
+    \item LRU-k: k-letztes unpin, sonst wie LRU
+    \item MRU: Seite mit dem jüngsten unpin
+    \item Random: Zufällige Seite
+    \item [..]
+  \end{itemize}
+  Problem: Seite muss Pincount = 0 haben, aber was ist, wenn es eine solche Seite nicht gibt?
+\end{block}
+
+\begin{block}{In der Praxis}
+  \begin{itemize}
+    \item Anfragen werden 'vorhergesagt', Seiten werden im Puffer gehalten, wenn sie wahrscheinlich benötigt werden(Prefetching)
+    \item Fixierungs- und Verdrängungsempfehlungen von höherem Code, wenn dieser Weiß, dass eine Seite länger benötigt wird oder wahrscheinlich nicht mehr
+  \end{itemize}
+\end{block}
+
+\subsection*{Zugriff}
+\begin{block}{Datenbank-Dateien}
+  \begin{itemize}
+    \item Der Inhalt von Seiten ist für die Seitenverwaltung nicht relevant
+    \item DBMS verwaltet die Tabellen von Tupeln, Indexstrukturen, ...
+    \item Eine Datei besteht aus einer oder mehreren Seiten
+    \item jede Seite speichert einen oder mehrere Datensätze
+    \item Ein Datensatz entspricht einem Tupel
+  \end{itemize}
+\end{block}
+
+\begin{block}{Heap-Dateien}
+  \begin{itemize}
+    \item Datensätze werden in willkürlicher$^*$ Ordnung gespeichert
+    \item Umsetzung: Verkettete Liste von Seiten, Problem: Man muss viele Seiten durchsuchen(und auch Laden), bis die richtige Seite gefunden wurde
+    \item Alternative: Verzeichnis von Seiten, ist mit Zusatzaufwand für das Verzeichnis verbunden
+  \end{itemize}
+  $^*$Bei der Speicherung von Datensätzen gibt es mehrere Möglichkeiten, die 'richtige' Seite zu finden:
+  \begin{tabular}{|p{4cm}|p{6.5cm}|}
+    \hline
+    \textbf{Methode} & \textbf{Beschreibung} \\
+    \hline
+    Append only & Datensatz wird immer an die aktuelle Seite angefügt, wenn diese voll ist, wird eine neue Seite angelegt. \\
+    \hline
+    Best-fit & Datensatz wird auf die Seite geschrieben, wo die 'kleinste Lücke' ist, in die der Satz noch passt \\
+    & man muss erst alle Seiten durchsuchen, um die beste zu finden \\
+    \hline
+    First-fit & Datensatz wird auf die erste Seite geschrieben, wo genug Platz ist \\
+    \hline
+    Next-fit & Wie first-fit, aber die Suche beginnt bei der letzten einfügeoperation \\
+    \hline
+  \end{tabular}
+\end{block}
+
+\begin{block}{Inhalt einer Seite}
+  \begin{itemize}
+    \item Jeder Datensatz hat eine Datensatz-Kennung, die genau beschreibt, wo sich dieser befindet
+    \item Typisch: Seitennummer und Slot, Slots beginnen bei 0, mit fester Slotgröße
+    \item Suche dann innerhalb der Seite mit \texttt{slotnr * slotsize}
+    \item Die Seite hat einen Header, der mit einer Bitmap markiert, welche Slots belegt bzw. gültig sind
+    \item Löschung eines Datensatzes: Slot wird als ungültig markiert, die Datensatz-Kennung ändert sich nicht
+    \item Ggf. haben Datensätze unterschiedliche Längen, diese werden dann ans Ende der Seite gepackt und ein Slot-Verzeichnis wird verwendet
+    \item Das Verzeichnis enthält die Startadresse und Länge jedes Datensatzes
+    \item Dadurch kann die Datensatz-Kennung auf die Adresse im Slot-Verzeichnis zeigen und das Feld auf der Seite verschoben werden, ohne dass sich die Kennung ändert
+    \item Das Slot-Verzeichnis wird am Anfang der Seite gespeichert
+  \end{itemize}
+\end{block}
+
+\begin{block}{Alternative Seiteneinteilung}
+  \begin{itemize}
+    \item Row-Store:
+    \begin{itemize}
+      \item Tupel werden immer zusammen gespeichert
+      \item Vorteil: Schneller Zugriff auf komplette Tupel, vor allem bei \texttt{select * from Student where Name = 'Max';} sinnvoll
+    \end{itemize}
+    \item Column-Store:
+    \begin{itemize}
+      \item Es wird immer ein Attribut zusammen gespeichert, dafür dann für alle Tupel
+      \item Vorteil: Schneller Zugriff auf einzelne Attribute, vor allem bei \texttt{select avg(Note) from Klausur;} sinnvoll
+    \end{itemize}
+  \end{itemize}
+  Diese Konzepte lassen sich auch kompinieren.
 \end{block}
 \end{document}

@@ -986,6 +986,7 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
 \begin{block}{B$^+$-Bäume}
   \begin{itemize}
     \item Ähnlich zu ISAM, aber dynamische Indexseiten
+    \item Dominieren in der Praxis
     \item Keine Überlauf-Ketten
     \item Balancierung wird Aufrecht erhalten(50\% minimale Besetzung der Knoten, bei 67\% auch B$^*$-Baum genannt)
     \item Also hat jeder Nicht-Wurzelknoten zwischen d und 2d Einträge, wobei d die Ordnung des Baumes ist
@@ -1053,5 +1054,41 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
     \item Das Verschmelzen(oder Umverteilen) wird dann ggf. rekursiv bis zur Wurzel weitergeführt
   \end{itemize}
   In der Praxis wird das Verschmelzen meist nicht durchgeführt und die Minimumregel aufgeweicht
+\end{block}
+
+\begin{block}{Hash-basierte Indexierung}
+  \begin{itemize}
+    \item Daten werden in mittels einer Hash-Funktion auf Seiten, sogenannte 'Buckets' verteilt
+    \item Hash-Funktion berechnet einen Hashwert für den Schlüssel
+    \item Bei statischem Hashing: Feste Anzahl an Buckets, die Hash-Funktion ist konstant
+    \item Im Bucket sind die Datensätze oder rids gespeichert
+    \item Suche sehr schnell, da nur der Bucket durchsucht werden muss
+    \item Hashing ist besonders geeignet für Gleichheitsabfragen(z.B. \texttt{where VName='Max';})
+  \end{itemize}
+\end{block}
+
+\begin{block}{Dynamisches Hashing}
+  \begin{itemize}
+    \item statisches Hashing hat das Problem der Wahl der Anzahl der Buckets.
+    \begin{itemize}
+      \item Zu wenige Buckets: Viele Kollisionen, langsame Suche
+      \item Zu viele Buckets: Speicherplatzverschwendung
+    \end{itemize}
+    \item Lösung: Anzahl der Buckets wird dynamisch angepasst
+    \item Dann wird die Speicherung langsamer, weil sich eventuell die Hash-Funktion ändert
+  \end{itemize}
+\end{block}
+
+Indexierung verschnellert den Zugriff auf Daten, aber braucht mehr Speicher und die Indexierung kostet auch Zeit.
+
+\subsection*{Anfragebeantwortung}
+
+\begin{block}{Ausführungspläne}
+  \begin{itemize}
+    \item Eine Anfrage wird in einen Ausführungsplan übersetzt
+    \item Der Ausführungsplan beschreibt, wie die Anfrage ausgeführt wird
+    \item Er besteht aus Operatoren, die auf den Daten arbeiten
+    \item Ausführungspläne sind nicht immer eindeutig
+  \end{itemize}
 \end{block}
 \end{document}

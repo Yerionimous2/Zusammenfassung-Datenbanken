@@ -334,6 +334,9 @@ SQL-Befehle:
     & \texttt{when matched then update set c.VName = a.VName, c.NName = a.NName...} \\
     & \texttt{when not matched then insert values (a.MNr, a.VName, a.NName, a.Fach);} \\
     \hline
+    \texttt{create index [..] on [..]} & Erstellt einen Index auf die angegebene Tabelle. \\
+    & Primärschlüssel erhalten automatisch einen Index \\
+    \hline
     \multicolumn{2}{|p{11cm}|}{SQL als VCL(Sichtendefinition)} \\
     \hline
     \texttt{create view [..] as select [..]} & Erstellt eine Sicht, die aus der Select-Abfrage resultiert. \\
@@ -996,6 +999,8 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
       \item Paare <k, \{rid$_1$, rid$_2$, ...\}>, wobei alle rids den Suchschlüssel k haben
     \end{enumerate}
     \item Variante 2 wird am häufigsten verwendet, nehmen wir ab hier an.
+    \item $\Rightarrow$ Die Datenblätter sind nicht sequentiell geordnet
+    \item Es gibt geclusterte B$^+$-Bäume, bei denen die Datensätze Sequentiell geordnet sind
     \item Suche findet wie bei ISAM statt, die Suche bricht aber schon bei den Blättern ab
   \end{itemize}
 \end{block}
@@ -1032,14 +1037,21 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
 
     \draw[->, thick] (2,-1.5) -- (5,-1.5);
     \node[draw=none, rectangle split parts=1] at (3.5,-1.5) [anchor=south] {Aufspaltung der Blattseite};
-
-
-
   \end{tikzpicture}
   \textbf{Schritt:} Einfügen von \textbf{9}
 \end{block}
 
 \begin{block}{Löschen aus B$^+$-Bäumen}
-  
+  \begin{itemize}
+    \item B$^+$-Baum soll balanciert bleiben
+    \item Suche die Blattseite, auf der der Eintrag gelöscht werden soll
+    \item Falls die Seite noch genug Einträge hat(min. d+1), wird der Eintrag gelöscht
+    \item Sonst: Falls eine der Nachbarseiten mehr als d Einträge hat, wird ein Eintrag von der Nachbarseite übernommen
+    \item Danach wird der Index angepasst
+    \item Falls beide Nachbarseiten nur d Einträge haben, verschmelzt die Seite mit einer der Nachbarseiten
+    \item Der Eintrag in der Elternseite, der auf die Seite zeigt, wird gelöscht
+    \item Das Verschmelzen(oder Umverteilen) wird dann ggf. rekursiv bis zur Wurzel weitergeführt
+  \end{itemize}
+  In der Praxis wird das Verschmelzen meist nicht durchgeführt und die Minimumregel aufgeweicht
 \end{block}
 \end{document}

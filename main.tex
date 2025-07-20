@@ -935,7 +935,111 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
 
 \begin{block}{ISAM-Indexierung}
   \begin{itemize}
-    \item 
+    \item Aufteilung in Datenseiten und Indexseiten
+    \item Indexseiten enthalten Schlüssel und Zeiger auf die Datenseiten
+    \item Datenseiten trotzdem sortiert
+    \item Hunderte Einträge pro Indexseite $\Rightarrow$ kleine Baumtiefe
+    \item Felder fester Länge, Navigation mittels Versatz
+    \item Binärsuche auf Indexseiten möglich
+    \item Indexeinträge:
+    \begin{itemize}
+      \item Bestehen aus Schlüssel k, der für die Suche verwendet wird
+      \item Seperator p, der Referenz auf die nächste Index- oder die Datenseite enthält
+      \item Seperator p ist der kleinste Schlüssel, der größer als k ist
+      \item p$_0$ ist kleiner als der kleinste Schlüssel in der Indexseite
+    \end{itemize}
+    \item Braucht totale Ordnung der Schlüssel
+    \item Indexseiten sind in einem Baum organisiert, der die Suche effizient macht
+    \item Sucht zuerst mittels Binärsuche in der 'Wurzelseite' nach dem Seperator p$_i$, sodass k$_i \leq$ k < k$_{i+1}$
+    \item p$_i$ ist dann der Zeiger auf die nächste Seite, die durchsucht werden muss
+    \item Die Suche wird rekursiv fortgesetzt, bis eine Datenseite erreicht ist
+    \item Dann wird auf der Datenseite nach k gesucht und ab da Sequentiell gelesen
+    \item Vorteile: Zugriff auf Daten schnell, da nur wenige Seiten gelesen werden müssen, viel Sequientieller Zugriff
+    \item Nachteile: Zusätzlicher Speicherbedarf für Indexseiten
+    \item Für (einigermaßen) statische Daten ist ISAM sehr gut geeignet. Warum?
   \end{itemize}
+\end{block}
+
+\begin{block}{Aktualisierungen bei ISAM}
+  \begin{itemize}
+    \item Löschen: Datensatz über Index suchen, anschließend aus der Datenseite löschen
+    \item Einfügen: auf passende Datenseite navigieren und Datensatz einfügen
+    \item Problem: Was ist, wenn die Seite voll ist?
+    \begin{itemize}
+      \item Im Vorhinein Platz lassen
+      \item Überlauf-Seite einfügen
+      \item Vorteil: Index bleibt statisch
+      \item Nachteil: Sequentielle Ordnung der Datensätze ist nicht mehr gegeben
+    \end{itemize}
+    \item Typisch sind 20\% Freiraum
+    \item Da Indexseiten statisch sind, ist keine Zugriffskoordination(bei Mehrbenutzerbetrieb) nötig
+  \end{itemize}
+\end{block}
+
+\begin{block}{Zugriffskoordination}
+  Sperrt den (Zeitgleichen) Zugriff, besonders nahe an der Wurzel.
+\end{block}
+
+\begin{block}{B$^+$-Bäume}
+  \begin{itemize}
+    \item Ähnlich zu ISAM, aber dynamische Indexseiten
+    \item Keine Überlauf-Ketten
+    \item Balancierung wird Aufrecht erhalten(50\% minimale Besetzung der Knoten, bei 67\% auch B$^*$-Baum genannt)
+    \item Also hat jeder Nicht-Wurzelknoten zwischen d und 2d Einträge, wobei d die Ordnung des Baumes ist
+    \item Hinzufügen und Löschen wird angemessen behandelt
+    \item Referenzierte Datenblätter nicht in sequentieller Ordnung
+    \item Blätter des Indexbaums sind zu doppelt verketteter Liste verbunden
+    \item Es gibt drei Varianten von B$^+$-Bäumen, sie unterscheiden sich darin, was in den Blättern gespeichert wird:
+    \begin{enumerate}
+      \item Vollständiger Datensatz: Die Blätter sind die Datenseiten
+      \item Paare <k, rid>, sortiert nach k mit rid als Referenz auf Datensatz
+      \item Paare <k, \{rid$_1$, rid$_2$, ...\}>, wobei alle rids den Suchschlüssel k haben
+    \end{enumerate}
+    \item Variante 2 wird am häufigsten verwendet, nehmen wir ab hier an.
+    \item Suche findet wie bei ISAM statt, die Suche bricht aber schon bei den Blättern ab
+  \end{itemize}
+\end{block}
+
+\begin{block}{Einfügen in B$^+$-Bäume}
+  \begin{itemize}
+    \item B$^+$-Baum soll balanciert bleiben
+    \item Suche die Blattseite, auf der der Eintrag eingefügt werden soll
+    \item Falls die Seite noch genug Platz hat(maximal 2d-1 Einträge), wird der Eintrag eingefügt
+    \item Sonst: Teile die Blattseite in Zwei Hälften, wobei die linke Hälfte d Einträge und die rechte Hälfte d-1 Einträge enthält
+    \item Füge die Referenz auf die neue Seite in den Elternknoten ein
+    \item Wird rekursiv bis zur Wurzel durchgeführt
+    \item Falls die Wurzel geteilt wird, wird eine neue Wurzel erstellt, der Baum wächst in der Höhe
+  \end{itemize}
+  \centering
+  \begin{tikzpicture}[level distance=2.5cm,
+      sibling distance=2cm,
+      every node/.style={rectangle split, rectangle split parts=2, draw, minimum width=1.2cm, text centered},
+      leaf/.style={rectangle split, rectangle split parts=3, draw, minimum width=1.8cm, text centered},
+      edge from parent/.style={draw,-latex},
+      level 2/.style={sibling distance=3cm},
+    ]
+
+    \node (root) {10}
+      child {node [leaf] {1 \nodepart{two} 4 \nodepart{three} 7}}
+      child {node [leaf] {11 \nodepart{two} 13 \nodepart{three} 15}};
+
+    \begin{scope}[xshift=7cm]
+    \node (newroot) {7 \nodepart{two} 10}
+      child {node [leaf] {1 \nodepart{two} 4}}
+      child {node [leaf] {7 \nodepart{two} 9}}
+      child {node [leaf] {11 \nodepart{two} 13 \nodepart{three} 15}};
+    \end{scope}
+
+    \draw[->, thick] (2,-1.5) -- (5,-1.5);
+    \node[draw=none, rectangle split parts=1] at (3.5,-1.5) [anchor=south] {Aufspaltung der Blattseite};
+
+
+
+  \end{tikzpicture}
+  \textbf{Schritt:} Einfügen von \textbf{9}
+\end{block}
+
+\begin{block}{Löschen aus B$^+$-Bäumen}
+  
 \end{block}
 \end{document}

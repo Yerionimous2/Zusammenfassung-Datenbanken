@@ -1220,4 +1220,23 @@ Indexierung verschnellert den Zugriff auf Daten, aber braucht mehr Speicher und 
     \end{itemize}
   \end{itemize}
 \end{block}
+
+\section{Kapitel 7: Transaktionen}
+
+\begin{block}{Transaktion}
+  \begin{itemize}
+    \item logische Verarbeitungseinheit auf einer DB
+    \item typischerweise mehrere Operationen
+    \item werden mit \texttt{begin\_transaction;} gestartet
+    \item und mit \texttt{end\_transaction;} beendet
+    \item müssen mit \texttt{commit;} physisch durchgeführt werden oder mit \texttt{abort} abgebrochen werden
+    \item ACID-Eigenschaften:
+    \begin{itemize}
+      \item Atomicity: Alles oder nichts
+      \item Consistency: Vorher alles ok, hinterher alles ok
+      \item Isolation: Jede/r denkt, er/sie sei alleine auf der DB
+      \item Durability: Transaktion bestätigt? Dann sind die Daten sicher
+    \end{itemize}
+  \end{itemize}
+\end{block}
 \end{document}

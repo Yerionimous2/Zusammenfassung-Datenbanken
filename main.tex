@@ -337,6 +337,20 @@ SQL-Befehle:
     \texttt{create index [..] on [..]} & Erstellt einen Index auf die angegebene Tabelle. \\
     & Primärschlüssel erhalten automatisch einen Index \\
     \hline
+    \texttt{begin\_transaction} & Startet eine Transaktion. \\
+    \hline
+    \texttt{end\_transaction} & Beendet eine Transaktion logisch \\
+    \hline
+    \texttt{commit} & Fügt die Ergebnisse einer Transaktion in den Datenbestand ein. \\
+    \hline
+    \texttt{abort} & Abbruch einer Transaktion. Änderungen werden verworfen. \\
+    \hline
+    \multicolumn{2}{|p{11cm}|}{Innerhalb einer Transaktion:} \\
+    \hline
+    \texttt{read\_item(X)} & Liest den Wert eines Datenobjekts X. \\
+    \hline
+    \texttt{write\_item(X)} & Schreibt den Wert einer Programmvariablen X in das entsprechende Datenobjekt. \\
+    \hline
     \multicolumn{2}{|p{11cm}|}{SQL als VCL(Sichtendefinition)} \\
     \hline
     \texttt{create view [..] as select [..]} & Erstellt eine Sicht, die aus der Select-Abfrage resultiert. \\
@@ -1237,6 +1251,38 @@ Indexierung verschnellert den Zugriff auf Daten, aber braucht mehr Speicher und 
       \item Isolation: Jede/r denkt, er/sie sei alleine auf der DB
       \item Durability: Transaktion bestätigt? Dann sind die Daten sicher
     \end{itemize}
+    \item Fehler in Transaktionen
+    \begin{itemize}
+      \item Lost Update: Zwei Transaktionen greifen auf dasselbe Datenobjekt zu
+      \item Dirty Read: Eine Transaktion, die später abgebrochen wird, schreibt ein Datenobjekt, dass dann von einer anderen Transaktion gelesen wird
+      \item Ghost-Update: Aggregation wird von einer Transaktion berechnet, eine andere Transaktion aktualisiert davon betroffene Datenobjekte
+      \item Unrepeatable Read: Eine Transaktion liest ein Datenobjekt zweimal, dazwischen wird es von einer anderen Transaktion aktualisiert
+    \end{itemize}
   \end{itemize}
 \end{block}
+
+\subsection*{Scheduling}
+\begin{block}{Scheduling}
+  \begin{itemize}
+    \item Bei großen Mengen von Transaktionen sollten die Transaktionen nicht nacheinander, sondern nebenläufig ausgeführt werden
+    \item Aber es soll keine Anomalien auftreten. Das ist die Aufabe eines Schedulers
+    \item Konflikte zwischen zwei Operationen liegen vor, wenn
+    \begin{itemize}
+      \item Sie zu unterschiedlichen Transaktionen gehören
+      \item Sie auf dasselbe Datenobjekt zugreifen
+      \item und mindestens eine Operation eine Schreiboperation ist
+    \end{itemize}
+    \item Nicht konfliktäre Operationen können gleichzeitig ausgeführt werden
+  \end{itemize}
+\end{block}
+
+\begin{block}{Korrektheitsprüfung mit Serialisierungsgraphen}
+  \begin{itemize}
+    \item Gerichteter Graph mit allen Transaktionen, Kanten nur von Transaktionen zu anderen Transaktionen, bei denen eine Operation, die im Konflikt steht früher ausgeführt wird.
+    \item Wenn der Graph keine Zyklen enthält, ist S serialisierbar, sonst nicht
+  \end{itemize}
+\end{block}
+
+\subsection*{Sperrverwaltung}
+
 \end{document}

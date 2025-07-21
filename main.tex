@@ -1201,4 +1201,23 @@ Indexierung verschnellert den Zugriff auf Daten, aber braucht mehr Speicher und 
 \end{block}
 
 \subsection*{Anfrageoptimierung}
+
+\begin{block}{Anfrageoptimierung}
+  \begin{itemize}
+    \item Ausführungspläne wichtigste Entscheidung
+    \item Welche Implementierung von Join-Operatoren?
+    \item Welche Blockgößen, Pufferallokation?
+    \item Soll ein Index angelegt werden?
+    \item Einige Optimierungen können unabhängig von den Daten erfolgen
+    \begin{itemize}
+      \item Selektionsprädikate früh anwenden, einfacher machen
+      \item Geschachtelte Anfragen entschachteln, Joins explizit machen
+      \item Duplikat-Eliminierung vermeiden
+    \end{itemize}
+    \item Datenabhängige Optimierung macht der Optimiser
+    \begin{itemize}
+      \item Kostenbasiert auf Basis der Daten, größen der DB
+    \end{itemize}
+  \end{itemize}
+\end{block}
 \end{document}

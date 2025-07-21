@@ -1091,4 +1091,114 @@ Indexierung verschnellert den Zugriff auf Daten, aber braucht mehr Speicher und 
     \item Ausführungspläne sind nicht immer eindeutig
   \end{itemize}
 \end{block}
+
+\begin{block}{Sortieren}
+  \begin{itemize}
+    \item Sortierung kommt in Datenbanken häufig vor (\texttt{asc, desc}, für B$^+$-Bäume etc.)
+    \item Wie kann aber etwas sortiert werden, was nicht in den Hauptspeicher passt?
+    \item $\Rightarrow$ Zwei-Wege-Mischsortierung
+  \end{itemize}
+\end{block}
+
+\begin{block}{Zwei-Wege-Mischsortierung}
+  \begin{itemize}
+    \item Sortierung in mehreren Durchgängen mit minimal 3 Pufferseiten(Schneller mit mehr)
+    \item Zeitaufwand ist $O(n \log n)$.
+    \item Startet mit dem Sortieren von jeder einzelnen Seite für sich
+    \item Dann werden rekursiv zwei Sortierte 'Pakete' zusammengeführt, es ist immer nur eine Seite der 'Pakete' im Puffer
+    \item Um $n$ Seiten zu sortieren, werden $2 \cdot n \cdot (1 + \lceil log_2n \rceil)$ I/O-Operationen verwendet(bei 3 Pufferseiten)
+    \item Wie wird das bei mehr Pufferseiten weniger?
+    \begin{itemize}
+      \item Zwei Möglichkeiten(kombinierbar):
+      \item Reduktion des initialen 'Pakets', indem mehrere Seiten gleichzeitig sortiert werden
+      \begin{itemize}
+        \item Mit $k$ Seiten im Puffer können $k$ Seiten gleichzeitig sortiert werden
+        \item Dadurch wird die Anzahl der I/O-Operationen reduziert:
+        \[2 \cdot n \cdot (1 + \lceil log_2\frac{n}{k} \rceil)\]
+      \end{itemize}
+      \item Reduktion der Anzahl der Durchgänge durch das Sortieren von mehr als 2 'Paketen'
+      \begin{itemize}
+        \item Mit $k$ Pufferseiten können $k-1$ Pakete gleichzeitig sortiert werden
+        \item Dadurch wird die Anzahl der I/O-Operationen weiter reduziert:
+        \[2 \cdot n \cdot (1 + \lceil log_{k-1}\frac{n}{k} \rceil)\]
+      \end{itemize}
+    \end{itemize}
+    \item In der Praxis meist genug Speicherplatz, um die Sortierung in wenigen Durchgängen zu machen
+  \end{itemize}
+\end{block}
+[Hier fehlt was zum externen Mischsortieren]?
+
+\begin{block}{Join-Implementierung}
+  \begin{itemize}
+    \item Intuitive Herangehensweise: Erst Kreuzprodukt, dann Filterung nach Bedingung
+    \item Problem: Zwischenergebnis sehr groß
+    \item Lösung: Join als geschachtelte Schleife
+    \begin{itemize}
+      \item Für jedes Tupel der ersten Relation wird die zweite Relation durchsucht
+      \item Dann wird geprüft, ob für die jeweilige Kombination die Join-Bedingung erfüllt ist
+      \item Wenn ja, wird das Tupel in das Ergebnis aufgenommen
+      \item Problem davon: Sehr viele wahlfreie Zugriffe $\Rightarrow$ ineffizient
+    \end{itemize}
+    \item Besser: Blockweiser Join mit Schleifen
+    \begin{itemize}
+      \item Iteriert auf Blöcken, die dann sequentiell gelesen werden können.
+      \item Diese werden dann auf die intuitive Weise gejoined und das Ergebnis angehängt.
+      \item Wichtig: der Join muss im Hauptspeicher ausführbar sein.
+      \item $\Rightarrow$ mehr Speicherplatzverbrauch, aber weniger langsam
+    \end{itemize}
+    \item Wenn die Bedingung ein Gleihheitsprädikat ist, kann eine Hash-Tabelle für den äußeren Block deutlich beschleunigen.
+    \item Weil man nur das Bucket mit der Gleichheit durchsuchen muss
+    \item Wenn bereits ein Index für eine Relation vorhanden ist, die mit der Bedingung verträglich ist(SARGable), kann diese Relation auch nach innen geschoben und dann damit gearbeitet werden.
+    \item Alternative: Hash-Join
+    \begin{itemize}
+      \item R und S werden anhand einer Hash-Funktion partitioniert
+      \item Dann wird join(R$_i$, S$_i$) für alle i berechnet werden (einfacher)
+      \item Anzahl der Partitionen sollte so gewählt werden, dass der Join im Hauptspeicher berechnet werden kann
+    \end{itemize}
+  \end{itemize}
+\end{block}
+
+\begin{block}{Gruppierung + texttt{unique}-Behandlung}
+  \begin{itemize}
+    \item Herausforderung: identische Datensätze in einer Datei finden
+    \item Entweder bzgl. Gruppierungsattributen oder bzgl aller Attribute
+    \item Umsetzung mit Sortierung oder Hash-Join
+  \end{itemize}
+\end{block}
+
+\begin{block}{Selektion und Projektion}
+  Projektion $\pi$
+  \begin{itemize}
+    \item Entfernen nicht benötigter Spalten
+    \item Eliminierung von Duplikaten
+  \end{itemize}
+  Selektion $\sigma$
+  \begin{itemize}
+    \item Ablaufen aller Datensätze
+    \item Eventuell Sortierung oder Index ausnutzen
+  \end{itemize}
+\end{block}
+
+\begin{block}{Pipelining}
+  \begin{itemize}
+    \item Bisher: Operatoren verarbeiten ganze Dateien
+    \item Führt zu langen Antwortzeiten etc.
+    \item Alternativ könnte der Operator direkt seine Ergebnisse an den nächsten senden
+    \item Wichtig: größe der Brocken, die weitergegeben werden
+    \item Ausführung wird dadurch deutlich schneller
+  \end{itemize}
+\end{block}
+
+\begin{block}{Blockierende Operatoren}
+  \begin{itemize}
+    \item Pipelining funktioniert nicht für alle Operatoren, z.B.
+    \begin{itemize}
+      \item Misch-Sortierung
+      \item Gruppierung, Eliminierung von Duplikaten, Max/Min
+    \end{itemize}
+    \item Solche Operatoren bekommen immer gesamtes Zwischenergebnis
+  \end{itemize}
+\end{block}
+
+\subsection*{Anfrageoptimierung}
 \end{document}

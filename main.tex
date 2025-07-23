@@ -135,20 +135,45 @@ Reduziert die Anzahl der Attribute. Beispiel:
 \end{block}
 
 \begin{block}{Vereinigung $\cup$ Schnitt $\cap$ Differenz $-$}
-Klassische Mengenoperationen für Relationen mit gleichem Schema.
+  \begin{itemize}
+    \item Klassische Mengenoperationen für Relationen mit gleichem Schema.
+    \item Müssen Unionisable sein, d.h. die gleiche Anzahl an Attributen und kompatible Datentypen haben.
+    \begin{itemize}
+      \item Die 'outer Union', die die gemeinsamen Attribute wie Union behandelt, die 'übrigen' Attribute auf NULL oder default setzt
+      \item Dann brauchen die Relationen nicht mehr Unionisable zu sein.
+    \end{itemize}
+  \end{itemize}
+\end{block}
+
+\begin{block}{Division}
+  \begin{itemize}
+    \item R $\div$ S geht nur, wenn R alle Attribute von S enthält(und mehr).
+    \item Dann werden die Attributkombinationen von R ausgewählt, die alle in S vorkommenden Attributkombinationen enthalten
+  \end{itemize}
 \end{block}
 
 \begin{block}{Kartesisches Produkt ($\times$)}
-Kombiniert zwei Relationen durch paarweise Tupelkombination.
+Kombiniert zwei Relationen durch paarweise Tupelkombination. Alle Tupel der ersten Tabelle werden mit der zweiten verbunden
 \end{block}
 
 \begin{block}{Join ($\bowtie$)}
-Verknüpft zwei Relationen über gemeinsame Attribute. Spezialformen:
-\begin{itemize}
-  \item natürlicher Join
-  \item theta-Join
-  \item equi-Join
-\end{itemize}
+  \begin{itemize}
+    \item Kombiniert Tupel, die die Join.Bedingung erfüllen.
+    \item Entspricht Kartesischem Produkt, gefolgt von Selektion.
+    \item Spezialfälle:
+    \begin{itemize}
+      \item Theta-Join: Bedingungen beschränken sich auf \{=, <, $\leq$, $\geq$, >, $\neq$\}.
+      \item Equi-Join: Nur eine Bedingung, die auf Gleichheit prüft.
+      \item Natural Join: Automatischer Join über alle gleichnamigen Attribute die gleichen Attribute werden nur einmal übernommen.
+      \item Outer Join: Beinhaltet auch Tupel, die keine Entsprechung in der anderen Relation haben.
+      \begin{itemize}
+        \item Left: Beinhaltet alle Tupel der linken Relation.
+        \item Right: Beinhaltet alle Tupel der rechten Relation.
+        \item Full: Beinhaltet alle Tupel beider Relationen.
+      \end{itemize}
+      \item Die klassische $\bowtie$ vom Join bekommt hier kleine ärmchen in die jeweilige Richtung.
+    \end{itemize}
+  \end{itemize}
 \end{block}
 
 \begin{block}{Umbenennung ($\rho$)}

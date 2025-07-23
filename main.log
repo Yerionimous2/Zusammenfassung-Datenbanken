@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  23 JUL 2025 17:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  23 JUL 2025 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -844,166 +844,171 @@ Underfull \hbox (badness 10000) in paragraph at lines 220--222
  []
 
 
+Underfull \hbox (badness 1895) in paragraph at lines 251--252
+[]\T1/cmr/m/n/10 Sicherstellen, dass es ei-ne Re-la-ti-on mit ei-nem Schlüs-sel für R
+ []
+
+
 
 [6]
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
 []|\T1/cmtt/m/n/10 create schema Unternehmen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
 \T1/cmtt/m/n/10 authorization JSmith create table
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 []| \T1/cmtt/m/n/10 add foreign key (Abt) references
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 366--367
+Underfull \hbox (badness 1173) in paragraph at lines 353--354
 []|\T1/cmr/m/n/10 Löscht das an-ge-ge-be-ne Ob-jekt. Kann auf
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 []|\T1/cmtt/m/n/10 insert into Student (MNr, VName,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 \T1/cmtt/m/n/10 NName, Fach) values (123456, 'Max',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--392
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
 []|\T1/cmtt/m/n/10 merge into[..] using
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
 []|\T1/cmr/m/n/10 Durch \T1/cmtt/m/n/10 when matched \T1/cmr/m/n/10 bzw. \T1/cmtt/m/n/10 when not
  []
 
 
-Underfull \hbox (badness 3323) in paragraph at lines 393--394
+Underfull \hbox (badness 3323) in paragraph at lines 380--381
 \T1/cmtt/m/n/10 matched \T1/cmr/m/n/10 kann das Ver-hal-ten beim mer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 []|\T1/cmtt/m/n/10 merge into AllStudent c using Student
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 []|\T1/cmtt/m/n/10 when matched then update set c.VName
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 []|\T1/cmtt/m/n/10 when not matched then insert values
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--399
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 []|\T1/cmtt/m/n/10 create index [..] on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--418
+Underfull \hbox (badness 10000) in paragraph at lines 405--405
 []|\T1/cmtt/m/n/10 create view [..] as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--424
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []|\T1/cmtt/m/n/10 revoke [..] on [..]
  []
 
 [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 []|\T1/cmtt/m/n/10 create domain Matrikelnummertyp as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 \T1/cmtt/m/n/10 numeric(6,0) not null check(value >=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
 []|\T1/cmtt/m/n/10 create table Student (MNr
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
 \T1/cmtt/m/n/10 Matrikelnummertyp, VName varchar(50)
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 448--449
+Underfull \hbox (badness 2351) in paragraph at lines 435--436
 []|\T1/cmr/m/n/10 Wenn das Tu-pel, aus dem die Re-fe-renz
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
 []|\T1/cmtt/m/n/10 foreign key (PID) references
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 []|\T1/cmtt/m/n/10 select * from Klausur where Note <=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 []|\T1/cmtt/m/n/10 select * from Projekt, ArbeitetAn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 \T1/cmtt/m/n/10 where Nummer = projNr group by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
 []|\T1/cmtt/m/n/10 select * from Student where
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
 \T1/cmtt/m/n/10 Durchschnittsnote in (0.7, 1.0, 1.7,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--487
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 []|\T1/cmtt/m/n/10 select * from Klausur order by Note
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
 []|\T1/cmtt/m/n/10 select * from Belegung group by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 []|\T1/cmtt/m/n/10 select Name as StudentName from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--518
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 []|\T1/cmtt/m/n/10 select * from Student where Name like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 []|\T1/cmtt/m/n/10 select * from Student where Name like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--530
+Underfull \hbox (badness 10000) in paragraph at lines 517--517
 []|\T1/cmtt/m/n/10 is null \T1/cmr/m/n/10 bzw. \T1/cmtt/m/n/10 is not
  []
 
@@ -1012,69 +1017,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 530--530
 [12]
 
 [13]
-Overfull \hbox (62.9035pt too wide) in paragraph at lines 595--596
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 582--583
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
 []|\T1/cmtt/m/n/10 select * from A inner join b on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--622
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
 []|\T1/cmtt/m/n/10 select * from A left outer join B on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 611--612
 []|\T1/cmtt/m/n/10 select * from Angestellte A,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 611--612
 \T1/cmtt/m/n/10 Angestellte B where A.ID =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 616--617
 []|\T1/cmtt/m/n/10 select * from A union select * from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--632
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 []|\T1/cmtt/m/n/10 select * from A intersect select *
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
 []|\T1/cmtt/m/n/10 select * from A minus select * from
  []
 
 
-Overfull \hbox (6.16133pt too wide) in paragraph at lines 611--638
+Overfull \hbox (6.16133pt too wide) in paragraph at lines 598--625
  [] 
  []
 
 
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 668--668
+Underfull \hbox (badness 10000) in paragraph at lines 655--655
 []|\T1/cmtt/m/n/10 Float, Real, Double
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 668--669
+Underfull \hbox (badness 7740) in paragraph at lines 655--656
 []|\T1/cmr/m/n/10 Gleitkommazahlen, Ap-pro-xi-ma-tiv. Dou-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 670--670
+Underfull \hbox (badness 10000) in paragraph at lines 657--657
 []|\T1/cmtt/m/n/10 Decimal(i, j),
  []
 
 
-Overfull \hbox (6.16133pt too wide) in paragraph at lines 662--679
+Overfull \hbox (6.16133pt too wide) in paragraph at lines 649--666
  [] 
  []
 
@@ -1093,19 +1098,19 @@ Overfull \hbox (6.16133pt too wide) in paragraph at lines 662--679
 [20]
 
 [21]
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 959--974
+Underfull \hbox (badness 10000) in paragraph at lines 946--961
 $[]$\T1/cmr/m/n/10 Bei der Spei-che-rung von Da-ten-sät-zen gibt es meh-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 959--974
+Underfull \hbox (badness 10000) in paragraph at lines 946--961
 \T1/cmr/m/n/10 re-re Mög-lich-kei-ten, die 'rich-ti-ge' Sei-te zu fin-den:
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 985--986
+
+[22]
+Underfull \hbox (badness 1325) in paragraph at lines 972--973
 []\T1/cmr/m/n/10 Dadurch kann die Datensatz-Kennung auf die Adres-se im Slot-
  []
 
@@ -1116,22 +1121,22 @@ Underfull \hbox (badness 1325) in paragraph at lines 985--986
 [24]
 
 [25]
-
-[26]
-Overfull \hbox (4.12363pt too wide) in paragraph at lines 1119--1121
+Overfull \hbox (4.12363pt too wide) in paragraph at lines 1106--1108
  [] 
  []
 
 
 
-[27]
+[26]
 
-[28]
-Underfull \hbox (badness 2744) in paragraph at lines 1183--1184
+[27]
+Underfull \hbox (badness 2744) in paragraph at lines 1170--1171
 []\T1/cmr/m/n/10 Sortierung in meh-re-ren Durch-gän-gen mit mi-ni-mal 3 Puf-fer-sei-
  []
 
 
+
+[28]
 
 [29]
 
@@ -1141,27 +1146,25 @@ Underfull \hbox (badness 2744) in paragraph at lines 1183--1184
 
 [32]
 
-[33]
-
-[34] (./main.aux)
+[33] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 23228 strings out of 473190
- 486653 string characters out of 5715801
- 931503 words of memory out of 5000000
- 46118 multiletter control sequences out of 15000+600000
+ 23229 strings out of 473190
+ 486645 string characters out of 5715801
+ 931015 words of memory out of 5000000
+ 46119 multiletter control sequences out of 15000+600000
  570478 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 121i,11n,124p,520b,1537s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 121i,10n,124p,520b,1537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathabx-type1/mathb10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (35 pages, 313608 bytes).
+Output written on main.pdf (34 pages, 311308 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 195 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

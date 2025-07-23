@@ -239,31 +239,18 @@ Die Normalisierung dient dazu, Redundanzen zu vermeiden und Anomalien (Einfüge-
 \end{enumerate}
 \end{block}
 
-\begin{block}{Beispiel: Normalisierung auf 3NF}
-Gegeben sei folgende Relation:
-\[
-R(\underline{MatrNr}, Name, Studiengang, Fakultaet)
-\]
-mit den funktionalen Abhängigkeiten:
-\begin{align*}
-\text{F1: } & \text{MatrNr} \rightarrow \text{Name, Studiengang, Fakultaet} \\
-\text{F2: } & \text{Studiengang} \rightarrow \text{Fakultaet}
-\end{align*}
-
-\textbf{Analyse:}
-\begin{itemize}
-  \item F1: MatrNr ist ein Schlüsselkandidat.
-  \item F2: transitive Abhängigkeit: MatrNr $\rightarrow$ Studiengang $\rightarrow$ Fakultaet
-  \item $\Rightarrow$ Verstoß gegen 3NF.
-\end{itemize}
-
-\textbf{Zerlegung in 3NF:}
-\begin{itemize}
-  \item $R_1(\underline{MatrNr}, Name, Studiengang)$
-  \item $R_2(\underline{Studiengang}, Fakultaet)$
-\end{itemize}
-
-\textbf{Ergebnis:} Beide Relationen sind in 3NF, keine Redundanz, keine Anomalien.
+\begin{block}{Zerlegungsalgorithmus(zu 3NF)}
+  \begin{enumerate}
+    \item Kanonische Überdeckung F$_c$ von F berechnen
+    \item Relation für jede FD in F$_c$:
+    \begin{itemize}
+      \item X $\rightarrow$ Y wird zu: R$_1$(X,Y).
+      \item X $\rightarrow$ Y,Z wird zu: R$_2$(X,Y,Z).
+      \item X,Y $\rightarrow$ Z wird zu: R$_3$(X,Y,Z).
+    \end{itemize}
+    \item Sicherstellen, dass es eine Relation mit einem Schlüssel für R gibt(Ansonsten Schlüssel als Relation R$_{n+1}$ hinzufügen)
+    \item Doppelte Schemata entfernen
+  \end{enumerate}
 \end{block}
 
 \begin{block}{Zerlegungsalgorithmus(zu BCNF)}

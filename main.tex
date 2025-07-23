@@ -1010,7 +1010,7 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
     \item \texttt{[..] where plz between 48159 and 48163;}
     \item Wird Ausgewertet, indem nach plz sortiert wird und danach mit binärer Suche der startwert gefunden und bis zum Endwert iteriert wird
     \item Problem: Bei der Suche sind die Datensätze wahrscheinlich nicht auf einer Seite(das ist das Prinzip von binärer Suche)
-    \item Lösungsidee: (Binär-)Bäume(kp, da wurde fast nichts zu gesagt?)
+    \item Lösungsidee: (Binär-)Bäume
   \end{itemize}
 \end{block}
 
@@ -1037,7 +1037,7 @@ Ursprünglich wurde für Java SQLJ benutzt, mittlerweile ist das aber veraltet.
     \item Dann wird auf der Datenseite nach k gesucht und ab da Sequentiell gelesen
     \item Vorteile: Zugriff auf Daten schnell, da nur wenige Seiten gelesen werden müssen, viel Sequientieller Zugriff
     \item Nachteile: Zusätzlicher Speicherbedarf für Indexseiten
-    \item Für (einigermaßen) statische Daten ist ISAM sehr gut geeignet. Warum?
+    \item Für (einigermaßen) statische Daten ist ISAM sehr gut geeignet.
   \end{itemize}
 \end{block}
 

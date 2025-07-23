@@ -441,15 +441,17 @@ SQL-Keywords:
     \hline
     \texttt{check} & Ermöglicht komplexere Einschränkungen \\
     \hline
-    \texttt{cascade} & ? \\
+    Beispiel & \texttt{create domain Matrikelnummertyp as numeric(6,0) not null check(value >= 100000)} \\
+    & \texttt{create table Student (MNr Matrikelnummertyp, VName varchar(50) not null)} \\
+    & erstellt einen 'Matrikelnummertyp', sie ist eine 6-Stellige Zahl. \\
+    \hline
+    \texttt{cascade} & Wenn das Tupel, aus dem die Referenz stammt gelöscht oder geändert wird, werden auch alle Tupel, die darauf referenzieren geupdated/gelöscht. \\
     \hline
     \texttt{set null} & Setzt die Referenz auf null \\
     \hline
     \texttt{set default} & Setzt die Referenz auf den Default-Wert \\
     \hline
-    \texttt{No Action/Restrict} & ? \\
-    \hline
-    Beispiel & Constraints beispiel? \\
+    \texttt{No Action/Restrict} & Verhindert das löschen/bearbeiten des Referenzierten Attributs.  \\
     \hline
     \texttt{foreign key} & Attribut verweist auf Primärschlüssel einer anderen Tabelle. \\
     \hline

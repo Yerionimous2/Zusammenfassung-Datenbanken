@@ -241,6 +241,43 @@ mit den funktionalen Abhängigkeiten:
 \textbf{Ergebnis:} Beide Relationen sind in 3NF, keine Redundanz, keine Anomalien.
 \end{block}
 
+\begin{block}{Zerlegungsalgorithmus(zu BCNF)}
+  \begin{enumerate}
+    \item L$_1$ bestimmen: Alle Linken und Rechten Seiten der funktionalen Abhängigkeiten
+    \item Tabelle malen:
+    \begin{tabular}{|P{1cm}|P{1cm}|P{1cm}|P{1cm}|p{2cm}|}
+      \hline
+      $\alpha$ & $\alpha^+$ & R$_i$ & $\beta$ & Zerlegung \\
+      \hline
+    \end{tabular}
+    \item Durch FDs iterieren:
+    \begin{enumerate}
+      \item Linke Seite der FD ist $\alpha$.
+      \item $\alpha^+$ sind alle von A erreichbaren Attribute
+      \item R$_i$ sind (alle) Relationen in der Zerlegung, die $\alpha$ enthalten
+      \item $\beta$ wird berechnet mit $\beta = (\alpha^+/\alpha)\cap R_i$
+      \item Falls $\beta$ leer ist, zum nächsten FD gehen
+      \item Die neue Zerlegung ist die alte Zerlegung, $\beta$ wird aus R$_i$ entfernt, $\alpha\cup\beta$ wird als neue Relation hinzugefügt.
+    \end{enumerate}
+    \item Alle Relationen in der Zerlegung prüfen
+    \begin{enumerate}
+      \item L: Alle Linken Seiten der funktionalen Abhängigkeiten
+      \item Alle R$_i$ mit |R$_i$| $\leq$ 2 sind in BCNF
+      \item Iteriere durch die restlichen R$_i$ der Zerlegung:
+      \begin{enumerate}
+        \item Überprüfe alle Teilmengen $\alpha \subseteq L \cap R_i$ mit |$\alpha$| < |R$_i$|-1
+        \item Bilde $\gamma = \alpha^+\cap R_i$.
+        \item 3 Fälle:
+        \begin{enumerate}
+          \item $\gamma = \alpha$ \checkmark
+          \item $\gamma = R_i$ \checkmark
+          \item Sonst: $\alpha$ als FD bei Schritt 3 einsetzen und weiter iterieren. Nur die veränderten Relationen müssen erneut verifiziert werden.
+        \end{enumerate}
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+\end{block}
+
 \begin{block}{Anomalien}
 Anomalien treten auf, wenn Relationen schlecht strukturiert sind – meist durch Redundanz und fehlende Trennung von unabhängigen Daten. Es gibt drei Hauptarten:
 \begin{itemize}

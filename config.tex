@@ -7,13 +7,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{longtable}
+\usepackage{array}
 \usetikzlibrary{positioning, shapes.geometric, shapes.multipart, arrows, calc}
 \tcbuselibrary{listings, skins, breakable}
 
 \newcounter{block}[section]
 \renewcommand{\theblock}{\thesection.\arabic{block}}
 
-% Automatisches Zurücksetzen von block bei jedem \section
 \usepackage{etoolbox}
 \preto\section{\setcounter{block}{0}}
 
@@ -42,3 +42,5 @@
     \par\vspace{2em}
     \noindent
 }
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}

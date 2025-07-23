@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  21 JUL 2025 21:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  23 JUL 2025 08:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,6 +378,15 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \c@LT@tables=\count312
 \c@LT@chunks=\count313
 \LT@p@ftn=\toks41
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen262
+\ar@mcellbox=\box79
+\extrarowheight=\dimen263
+\NC@list=\toks42
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box80
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
@@ -388,55 +397,55 @@ File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box79
-\pgfnodeparttwobox=\box80
-\pgfnodepartthreebox=\box81
-\pgfnodepartfourbox=\box82
-\pgfnodeparttwentybox=\box83
-\pgfnodepartnineteenbox=\box84
-\pgfnodeparteighteenbox=\box85
-\pgfnodepartseventeenbox=\box86
-\pgfnodepartsixteenbox=\box87
-\pgfnodepartfifteenbox=\box88
-\pgfnodepartfourteenbox=\box89
-\pgfnodepartthirteenbox=\box90
-\pgfnodeparttwelvebox=\box91
-\pgfnodepartelevenbox=\box92
-\pgfnodeparttenbox=\box93
-\pgfnodepartninebox=\box94
-\pgfnodeparteightbox=\box95
-\pgfnodepartsevenbox=\box96
-\pgfnodepartsixbox=\box97
-\pgfnodepartfivebox=\box98
+\pgfnodepartlowerbox=\box81
+\pgfnodeparttwobox=\box82
+\pgfnodepartthreebox=\box83
+\pgfnodepartfourbox=\box84
+\pgfnodeparttwentybox=\box85
+\pgfnodepartnineteenbox=\box86
+\pgfnodeparteighteenbox=\box87
+\pgfnodepartseventeenbox=\box88
+\pgfnodepartsixteenbox=\box89
+\pgfnodepartfifteenbox=\box90
+\pgfnodepartfourteenbox=\box91
+\pgfnodepartthirteenbox=\box92
+\pgfnodeparttwelvebox=\box93
+\pgfnodepartelevenbox=\box94
+\pgfnodeparttenbox=\box95
+\pgfnodepartninebox=\box96
+\pgfnodeparteightbox=\box97
+\pgfnodepartsevenbox=\box98
+\pgfnodepartsixbox=\box99
+\pgfnodepartfivebox=\box100
 )) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen262
+\arrowsize=\dimen264
 )) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.4.1'
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count314
-\lst@gtempboxa=\box99
-\lst@token=\toks42
+\lst@gtempboxa=\box101
+\lst@token=\toks43
 \lst@length=\count315
-\lst@currlwidth=\dimen263
+\lst@currlwidth=\dimen265
 \lst@column=\count316
 \lst@pos=\count317
-\lst@lostspace=\dimen264
-\lst@width=\dimen265
+\lst@lostspace=\dimen266
+\lst@width=\dimen267
 \lst@newlines=\count318
 \lst@lineno=\count319
-\lst@maxwidth=\dimen266
+\lst@maxwidth=\dimen268
  (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 \c@lstnumber=\count320
 \lst@skipnumbers=\count321
-\lst@framebox=\box100
+\lst@framebox=\box102
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
@@ -455,7 +464,7 @@ Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box101
+\l__tikzfill_img_box=\box103
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
@@ -470,15 +479,15 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box102
-\tcb@totalupperbox=\box103
-\tcb@totallowerbox=\box104
+\tcb@testbox=\box104
+\tcb@totalupperbox=\box105
+\tcb@totallowerbox=\box106
 )
 \c@block=\count323
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count324
-\l__pdf_internal_box=\box105
+\l__pdf_internal_box=\box107
 ) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -499,16 +508,16 @@ LaTeX Font Info:    ... okay on input line 5.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count325
-\scratchdimen=\dimen267
-\scratchbox=\box106
+\scratchdimen=\dimen269
+\scratchbox=\box108
 \nofMPsegments=\count326
 \nofMParguments=\count327
-\everyMPshowfont=\toks43
+\everyMPshowfont=\toks44
 \MPscratchCnt=\count328
-\MPscratchDim=\dimen268
+\MPscratchDim=\dimen270
 \MPnumerator=\count329
 \makeMPintoPDFobject=\count330
-\everyMPtoPDFconversion=\toks44
+\everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -559,208 +568,212 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--197
 [5]
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 []|\T1/cmtt/m/n/10 create schema Unternehmen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 \T1/cmtt/m/n/10 authorization JSmith create table
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 []| \T1/cmtt/m/n/10 add foreign key (Abt) references
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 304--305
+Underfull \hbox (badness 1173) in paragraph at lines 341--342
 []|\T1/cmr/m/n/10 Löscht das an-ge-ge-be-ne Ob-jekt. Kann auf
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 []|\T1/cmtt/m/n/10 insert into Student (MNr, VName,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 \T1/cmtt/m/n/10 NName, Fach) values (123456, 'Max',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--330
+Underfull \hbox (badness 10000) in paragraph at lines 367--367
 []|\T1/cmtt/m/n/10 merge into[..] using
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
 []|\T1/cmr/m/n/10 Durch \T1/cmtt/m/n/10 when matched \T1/cmr/m/n/10 bzw. \T1/cmtt/m/n/10 when not
  []
 
 
-Underfull \hbox (badness 3323) in paragraph at lines 331--332
+Underfull \hbox (badness 3323) in paragraph at lines 368--369
 \T1/cmtt/m/n/10 matched \T1/cmr/m/n/10 kann das Ver-hal-ten beim mer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 []|\T1/cmtt/m/n/10 merge into AllStudent c using Student
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--335
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 []|\T1/cmtt/m/n/10 when matched then update set c.VName
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
 []|\T1/cmtt/m/n/10 when not matched then insert values
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/cmtt/m/n/10 create index [..] on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--356
+Underfull \hbox (badness 10000) in paragraph at lines 393--393
 []|\T1/cmtt/m/n/10 create view [..] as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 []|\T1/cmtt/m/n/10 revoke [..] on [..]
  []
 
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+[8]
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
 []|\T1/cmtt/m/n/10 foreign key (PID) references
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 []|\T1/cmtt/m/n/10 select * from Klausur where Note <=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 []|\T1/cmtt/m/n/10 select * from Projekt, ArbeitetAn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 \T1/cmtt/m/n/10 where Nummer = projNr group by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 []|\T1/cmtt/m/n/10 select * from Student where
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 \T1/cmtt/m/n/10 Durchschnittsnote in (0.7, 1.0, 1.7,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 []|\T1/cmtt/m/n/10 select * from Klausur order by Note
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
 []|\T1/cmtt/m/n/10 select * from Belegung group by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 []|\T1/cmtt/m/n/10 select Name as StudentName from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 []|\T1/cmtt/m/n/10 select * from Student where Name like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--456
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 []|\T1/cmtt/m/n/10 select * from Student where Name like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
 []|\T1/cmtt/m/n/10 is null \T1/cmr/m/n/10 bzw. \T1/cmtt/m/n/10 is not
  []
 
-[9] [10]
+[10]
 
 [11]
-Overfull \hbox (62.9035pt too wide) in paragraph at lines 531--532
+
+[12]
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 568--569
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 553--554
-[]\T1/cmtt/m/n/10 select * from A inner join b on
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
+[]|\T1/cmtt/m/n/10 select * from A inner join b on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
-[]\T1/cmtt/m/n/10 select * from A left outer join B on
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
+[]|\T1/cmtt/m/n/10 select * from A left outer join B on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
-[]\T1/cmtt/m/n/10 select * from Angestellte A,
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
+[]|\T1/cmtt/m/n/10 select * from Angestellte A,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 \T1/cmtt/m/n/10 Angestellte B where A.ID =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
-[]\T1/cmtt/m/n/10 select * from A union select * from
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
+[]|\T1/cmtt/m/n/10 select * from A union select * from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--568
-[]\T1/cmtt/m/n/10 select * from A intersect select *
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+[]|\T1/cmtt/m/n/10 select * from A intersect select *
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
-[]\T1/cmtt/m/n/10 select * from A minus select * from
+Underfull \hbox (badness 10000) in paragraph at lines 606--607
+[]|\T1/cmtt/m/n/10 select * from A minus select * from
  []
 
 
-Overfull \hbox (4.96135pt too wide) in paragraph at lines 547--574
+Overfull \hbox (6.16133pt too wide) in paragraph at lines 584--611
  [] 
  []
 
 
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 604--604
-[]\T1/cmtt/m/n/10 Float, Real, Double
+Underfull \hbox (badness 10000) in paragraph at lines 641--641
+[]|\T1/cmtt/m/n/10 Float, Real, Double
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 604--605
-[]\T1/cmr/m/n/10 Gleitkommazahlen, Ap-pro-xi-ma-tiv. Dou-ble
+Underfull \hbox (badness 7740) in paragraph at lines 641--642
+[]|\T1/cmr/m/n/10 Gleitkommazahlen, Ap-pro-xi-ma-tiv. Dou-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--606
-[]\T1/cmtt/m/n/10 Decimal(i, j),
+Underfull \hbox (badness 10000) in paragraph at lines 643--643
+[]|\T1/cmtt/m/n/10 Decimal(i, j),
  []
 
 
-Overfull \hbox (4.96135pt too wide) in paragraph at lines 598--615
+Overfull \hbox (6.16133pt too wide) in paragraph at lines 635--652
  [] 
  []
 
@@ -779,45 +792,45 @@ Overfull \hbox (4.96135pt too wide) in paragraph at lines 598--615
 [19]
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 895--910
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 932--947
 $[]$\T1/cmr/m/n/10 Bei der Spei-che-rung von Da-ten-sät-zen gibt es meh-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--910
+Underfull \hbox (badness 10000) in paragraph at lines 932--947
 \T1/cmr/m/n/10 re-re Mög-lich-kei-ten, die 'rich-ti-ge' Sei-te zu fin-den:
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 921--922
+Underfull \hbox (badness 1325) in paragraph at lines 958--959
 []\T1/cmr/m/n/10 Dadurch kann die Datensatz-Kennung auf die Adres-se im Slot-
  []
 
 
-
-[21]
 
 [22]
 
 [23]
 
 [24]
-Overfull \hbox (4.12363pt too wide) in paragraph at lines 1055--1057
+
+[25]
+Overfull \hbox (4.12363pt too wide) in paragraph at lines 1092--1094
  [] 
  []
 
 
 
-[25]
-
 [26]
-Underfull \hbox (badness 2744) in paragraph at lines 1119--1120
+
+[27]
+Underfull \hbox (badness 2744) in paragraph at lines 1156--1157
 []\T1/cmr/m/n/10 Sortierung in meh-re-ren Durch-gän-gen mit mi-ni-mal 3 Puf-fer-sei-
  []
 
 
-
-[27]
 
 [28]
 
@@ -825,25 +838,27 @@ Underfull \hbox (badness 2744) in paragraph at lines 1119--1120
 
 [30]
 
-[31] (./main.aux)
+[31]
+
+[32] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22504 strings out of 473190
- 478540 string characters out of 5715801
- 929616 words of memory out of 5000000
- 45410 multiletter control sequences out of 15000+600000
+ 22573 strings out of 473190
+ 479533 string characters out of 5715801
+ 921703 words of memory out of 5000000
+ 45477 multiletter control sequences out of 15000+600000
  567340 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 121i,11n,124p,520b,1283s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (32 pages, 302563 bytes).
+ 121i,11n,124p,520b,1537s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (33 pages, 313937 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 187 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

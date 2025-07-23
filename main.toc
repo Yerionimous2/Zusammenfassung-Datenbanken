@@ -6,3 +6,4 @@
 \contentsline {section}{\numberline {5}Kapitel 5: SQL - Structured Query Language}{8}{}%
 \contentsline {section}{\numberline {6}Kapitel 6: Anfrageverarbeitung}{19}{}%
 \contentsline {section}{\numberline {7}Kapitel 7: Transaktionen}{32}{}%
+\contentsline {section}{\numberline {8}Kapitel 9-10}{34}{}%

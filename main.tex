@@ -1348,5 +1348,13 @@ Indexierung verschnellert den Zugriff auf Daten, aber braucht mehr Speicher und 
 \end{block}
 
 \subsection*{Sperrverwaltung}
+\begin{block}{Sperrverwaltung in Transaktionen}
+  \begin{itemize}
+    \item Transaktion kann mit \texttt{lock\_item(X)} das Datenobjekt X für andere Transaktionen sperren.
+    \item Entsperrung durch \texttt{unlock\_item(X)}.
+    \item Wenn eine Transaktion ein Datenobjekt sperren will, das bereits gesperrt ist, muss es warten, bis es von der ursprünglichen Transaktion entsperrt wird.
+    \item Kann zu Deadlocks oder Starvation führen.
+  \end{itemize}
+\end{block}
 
 \end{document}
